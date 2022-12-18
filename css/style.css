@@ -4,11 +4,15 @@
     margin: 0;
     font-family: "Unbounded", sans-serif;
 }
-
+body {
+    background-color: #f4ebdc;
+}
 
  /* HEADER PC ---------------------------------------------------------------------*/
 #header {
-   
+    position: fixed;
+    left: 0;
+    top: 0;
     padding-left: 10%;
     padding-right: 10%;
     width: 100%;
@@ -108,6 +112,9 @@ ul li a i {
  /* HEADER MOBILE ---------------------------------------------------------------------*/
 
 #header-menu-mobile {
+    position: fixed;
+    left: 0;
+    top: 85px;
     height: 70px;
     width: 100%;
     overflow-x: scroll;
@@ -115,7 +122,7 @@ ul li a i {
     white-space: nowrap;
     display: none;
     align-items: center;
-  padding-left: 20px;
+  padding-left: 10px;
     background-color: #471803;
 }
 #header-menu-mobile a{
@@ -126,13 +133,171 @@ font-size: 0.7rem;
 
  /* INICIO ---------------------------------------------------------------------*/
 #inicio {
+    margin-top: 100px;
     height: 70vh;
    background-image: url('fundo.png');
    background-color: #471803;
     background-size: cover;
     background-position: center;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+
+}
+ /* CARDAPIO ---------------------------------------------------------------------*/
+ #cardapio {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+ }
+#cardapio p{
+    color: #ee7700;
+    background-color: #471803;
+    text-align: center;
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 800;
+    padding: 5px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 20px;
+    
+    
+}
+/* HAMBURGUER ---------------------------------------------------------------------*/
+
+#hamburguer {
+  padding: 5%;
+    width: 100%;
 }
 
+#hamburguer h1{
+   color: #5c2308;
+   font-size: 2.6rem;
+}
+.container-hamburguer {
+    width: 100%;
+
+    height: 400px;
+    display: flex;
+    justify-content: space-between;
+}
+.hamburguer-seta-right,
+.hamburguer-seta-left {
+    height: 100%;
+    width: 40px;
+    background-color: #f4ebdc;
+    display: flex;
+    align-items: center;
+}
+
+.hamburguer-seta-right {
+    justify-content: end;
+}
+.hamburguer-seta-right svg,
+.hamburguer-seta-left svg {
+    width: 40px;
+}
+.hamburguer-seta-right > svg path,
+.hamburguer-seta-left > svg path {
+    
+    fill: #471803;
+    transition: all ease 0.3s;
+    cursor: pointer;
+}
+.hamburguer-seta-right svg:hover path,
+.hamburguer-seta-left svg:hover path {
+    fill: #ee7700;
+}
+.hamburguer-listarea {
+    height: 100%;
+    width: 100%;
+
+    overflow: hidden;
+}
+.hamburguer-list {
+    height: 100%;
+    width: 3060px;
+    margin-left: 0px;
+    display: flex;
+    align-items: center;
+    transition: all ease 0.3s;
+}
+
+.hamburguer-item {
+    width: 300px;
+    height: 350px;
+    background-color: #471803;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 40px;
+}
+.hamburguer-item-area1 {
+    width: 100%;
+    background-color: #5c2308;
+    height: 45%;
+    border-radius: 40px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+.hamburguer-item-area1 img {
+    height: 80%;
+}
+.hamburguer-item-area2 {
+    width: 100%;
+    padding: 1rem;
+ 
+}
+.hamburguer-item-area2 h2 {
+    color: #ee7700;
+    font-size: 1.4rem;
+}
+.hamburguer-item-area2 p{
+    color: antiquewhite;
+    font-size: 0.8rem;
+    margin-top: 5px;
+}
+.hamburguer-item-area3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;  
+}
+.hamburguer-item-area3 h2 {
+    color: #ee7700;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+}
+.hamburguer-item-area3 h2 span {
+    font-size: 1rem;
+}
+.hamburguer-item-area3 .hamburguer-plus {
+    border: 2px solid #f4ebdc;
+    border-radius: 15px;
+    padding: 0.8rem;
+    margin-left: 30px;
+    cursor: pointer;
+    transition: all ease 0.3s;
+} 
+.hamburguer-item-area3 .hamburguer-plus:hover {
+    background-color: #f4ebdc;
+}
+.hamburguer-plus svg {
+    fill: #f4ebdc;
+}
+
+.hamburguer-plus:hover > svg path {
+    
+    fill: #5c2308;
+}
+
+/* MODAL PRODUTO ---------------------------------------------------------------------*/
+
+
+/* RESPONSIVIDADE ---------------------------------------------------------------------*/
 @media (max-width: 1400px){
     #header {
    
@@ -159,10 +324,32 @@ font-size: 0.7rem;
         
     }
     #inicio {
+        margin-top: 155px;
         height: 40vh;
        background-image: url('fundo-celular.png');
        background-color: #471803;
         background-size: cover;
         background-position: center;
+    }
+    #hamburguer {
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       flex-direction: column;
+      }
+
+}
+@media(max-width: 460px) {
+    #hamburguer {
+        padding: 0%;
+          width: 100%;
+      }
+      .hamburguer-item {
+        width: calc(100vw - 80px);
+        height: 350px;
+        background-color: #471803;
+        margin-left: 0px;
+        margin-right: 20px;
+        border-radius: 40px;
     }
 }
