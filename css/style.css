@@ -1,0 +1,168 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: "Unbounded", sans-serif;
+}
+
+
+ /* HEADER PC ---------------------------------------------------------------------*/
+#header {
+   
+    padding-left: 10%;
+    padding-right: 10%;
+    width: 100%;
+    height: 100px;
+    background-color: #5c2308;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+#header img {
+    height: 60px;
+}
+#header-menu {
+    height: 100%;
+    align-items: center;
+    display: flex;
+}
+ul {
+    list-style: none;
+    display: flex;
+}
+ul li {
+    margin-right: 15px;
+    margin-left: 15px;
+}
+ul li a {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: 700;
+    color: #ee7700;
+    transition: all ease 0.3s;
+}
+ul li a:hover {
+    color: antiquewhite;
+    
+
+}
+
+ul li a > svg path {
+    
+    fill: #ee7700;
+    transition: all ease 0.3s;
+}
+ul li a:hover > svg path {
+    fill: antiquewhite;
+}
+ul li a i {
+    font-size: 30px;
+}
+
+#header-carrinho {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+#header-carrinho a {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-decoration: none;
+   
+}
+#header-carrinho a span{
+    font-size: 1rem;
+    font-weight: 800;
+    color: #5c2308;
+   background-color: antiquewhite;
+   padding: 5px;
+   padding-left: 10px;
+   padding-right: 10px;
+    border-radius: 25px;
+    margin-bottom: -20px;
+    text-decoration: none;
+    transition: all ease 0.3s;
+}
+#header-carrinho a:hover > span {
+
+    background-color:  #ee7700;
+}
+
+#header-carrinho a > svg path {
+    
+    fill: #ee7700;
+    transition: all ease 0.3s;
+}
+#header-carrinho a:hover > svg path {
+    fill: antiquewhite;
+}
+
+
+
+ /* HEADER MOBILE ---------------------------------------------------------------------*/
+
+#header-menu-mobile {
+    height: 70px;
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    display: none;
+    align-items: center;
+  padding-left: 20px;
+    background-color: #471803;
+}
+#header-menu-mobile a{
+    box-shadow: scroll;
+font-size: 0.7rem;
+}
+
+
+ /* INICIO ---------------------------------------------------------------------*/
+#inicio {
+    height: 70vh;
+   background-image: url('fundo.png');
+   background-color: #471803;
+    background-size: cover;
+    background-position: center;
+}
+
+@media (max-width: 1400px){
+    #header {
+   
+        padding-left: 5%;
+        padding-right: 5%;
+        
+    }
+}
+@media (max-width: 1200px){
+    #header {
+        height: 85px;
+        padding-left: 10%;
+        padding-right: 10%;
+        
+    }
+    #header img {
+        height: 45px;
+    }
+    #header-menu {
+        display: none;
+    }
+    #header-menu-mobile {
+        display: flex;
+        
+    }
+    #inicio {
+        height: 40vh;
+       background-image: url('fundo-celular.png');
+       background-color: #471803;
+        background-size: cover;
+        background-position: center;
+    }
+}
