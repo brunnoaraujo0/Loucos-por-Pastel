@@ -150,8 +150,8 @@ ul li a i {
 font-size: 0.7rem;
 }
 #header-menu-mobile::-webkit-scrollbar {
-    width: 12px; 
-    height: 10px;              /* width of the entire scrollbar */
+    width: 0px; 
+    height: 0px;              /* width of the entire scrollbar */
   }
   
   #header-menu-mobile::-webkit-scrollbar-track {
