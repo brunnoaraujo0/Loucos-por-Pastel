@@ -8,6 +8,23 @@ body {
     background-color: #f4ebdc;
 }
 
+
+body::-webkit-scrollbar {
+    width: 12px;               /* width of the entire scrollbar */
+  }
+  
+  body::-webkit-scrollbar-track {
+    background: #f4ebdc;        /* color of the tracking area */
+  }
+  
+  body::-webkit-scrollbar-thumb {
+    background-color: #5c2308;    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+    border: 3px solid #5c2308;  /* creates padding around scroll thumb */
+  }
+
+
+
  /* HEADER PC ---------------------------------------------------------------------*/
 #header {
     position: fixed;
@@ -73,14 +90,17 @@ ul li a i {
     flex-direction: column;
     justify-content: center;
 }
-#header-carrinho a {
+#header-carrinho button {
     display: flex;
     align-items: center;
     flex-direction: column;
     text-decoration: none;
+    background-color: #5c2308;
+    border: none;
+    cursor: pointer;
    
 }
-#header-carrinho a span{
+#header-carrinho button span{
     font-size: 1rem;
     font-weight: 800;
     color: #5c2308;
@@ -93,17 +113,17 @@ ul li a i {
     text-decoration: none;
     transition: all ease 0.3s;
 }
-#header-carrinho a:hover > span {
+#header-carrinho button:hover > span {
 
     background-color:  #ee7700;
 }
 
-#header-carrinho a > svg path {
+#header-carrinho button > svg path {
     
     fill: #ee7700;
     transition: all ease 0.3s;
 }
-#header-carrinho a:hover > svg path {
+#header-carrinho button:hover > svg path {
     fill: antiquewhite;
 }
 
@@ -129,7 +149,20 @@ ul li a i {
     box-shadow: scroll;
 font-size: 0.7rem;
 }
-
+#header-menu-mobile::-webkit-scrollbar {
+    width: 12px; 
+    height: 10px;              /* width of the entire scrollbar */
+  }
+  
+  #header-menu-mobile::-webkit-scrollbar-track {
+    background: #ee7700;        /* color of the tracking area */
+  }
+  
+  #header-menu-mobile::-webkit-scrollbar-thumb {
+    background-color: #5c2308;    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+    border: 3px solid #5c2308;  /* creates padding around scroll thumb */
+  }
 
  /* INICIO ---------------------------------------------------------------------*/
 #inicio {
@@ -444,10 +477,46 @@ font-size: 0.7rem;
 .cancela:hover {
     color: #5c2308;
 }
+  
+  @keyframes slidein {
+    from {
+      height: 100%;
+      width: 0
+    }
+  
+    to {
+     height: 100%;
+      width: 40vw;
+    }
+  }
 
+/* MODAL CARRINHO ---------------------------------------------------------------------*/
+.modal-carrinho {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color:rgba(196, 102, 35, 0.8);
+    display: none;
+    align-items: center;
+    justify-content: end; 
+}
+.carrinho {
+    width: 40vw;
+    height: 100vh;
+    background-color: #371200;
+    border-top-left-radius: 40px;
+    border-bottom-left-radius: 40px;
+    animation-duration: 0.8s;
+    animation-name: slidein;
 
-
-
+}
+.show {
+    display: flex;
+}
 
 
 

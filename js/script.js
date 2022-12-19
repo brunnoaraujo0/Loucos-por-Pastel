@@ -1,5 +1,7 @@
+let produtosCarrinho = [];
 const produtoModal = document.querySelector('.produto-modal');
-
+const iconeCarrinho = document.querySelector('#header-carrinho');
+const modalCarrinho = document.querySelector('.modal-carrinho');
 
 let marginHamburguer = 0;
 
@@ -7,19 +9,38 @@ let marginHamburguer = 0;
 
 document.querySelector('.setaLeft').addEventListener('click', ()=> {
    
-    
+    if(window.innerWidth >460){
     marginHamburguer = marginHamburguer + 340;
     if(marginHamburguer > 0){
         marginHamburguer = 0;
     }
     
-    document.querySelector('.hamburguer-list').style.marginLeft = marginHamburguer  + 'px';
+    document.querySelector('.hamburguer-list').style.marginLeft = marginHamburguer  + 'px';}
+    else {
+        marginHamburguer = marginHamburguer + (window.innerWidth - 60);
+        if(marginHamburguer > 0){
+            marginHamburguer = 0;
+        }
+        document.querySelector('.hamburguer-list').style.marginLeft = marginHamburguer + 'px'; ;
+    }
 })
 
 document.querySelector('.setaRigth').addEventListener('click', () => {
-    
-    marginHamburguer = marginHamburguer - 340;
-    document.querySelector('.hamburguer-list').style.marginLeft = marginHamburguer + 'px';
+    if(window.innerWidth >460){
+    let x = marginHamburguer - 340;
+    if((window.innerWidth - 3060) > x){
+        x = 0;
+    }
+    marginHamburguer = x;
+    document.querySelector('.hamburguer-list').style.marginLeft = marginHamburguer + 'px';}
+    else{
+        marginHamburguer = marginHamburguer - (window.innerWidth - 60)  ;
+        let x = -(window.innerWidth * 6) - 1;
+        if(marginHamburguer < x){
+            marginHamburguer = 0;
+        }
+        document.querySelector('.hamburguer-list').style.marginLeft = marginHamburguer + 'px';
+    }
 })
 
 
@@ -71,6 +92,7 @@ hamburguerJson.map((item, index) => {
         const buttonCancel = document.querySelector('.cancela');
         const buttonLess = document.querySelector('.quantidade-less');
         const buttonPlus = document.querySelector('.quantidade-plus');
+        const buttonAdd = document.querySelector('#add');
         const quantidade = document.querySelector('.produto-quantidade .quantidade');
 
         modalTitle.innerHTML = hamburguerJson[index].name;
@@ -96,6 +118,13 @@ hamburguerJson.map((item, index) => {
         buttonCancel.addEventListener('click', () => {
             produtoModal.classList.remove("show");
         })
+        buttonAdd.addEventListener('click', ()=>{
+            produtoModal.classList.remove("show");
+            modalCarrinho.classList.add("show");
+            produtosCarrinho[index] = hamburguerJson[index];
+            console.log(produtosCarrinho);
+            console.log(index);
+        })
 
 
         console.log(hamburguerJson[index]);   
@@ -104,4 +133,8 @@ hamburguerJson.map((item, index) => {
     hamburguerList.appendChild(hamburguerDiv); 
 
 
+})
+
+iconeCarrinho.addEventListener('click', () => {
+    modalCarrinho.classList.add("show");
 })
