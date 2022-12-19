@@ -135,7 +135,7 @@ font-size: 0.7rem;
 #inicio {
     margin-top: 100px;
     height: 70vh;
-   background-image: url('fundo.png');
+   background-image: url('/imagens/fundo.png');
    background-color: #471803;
     background-size: cover;
     background-position: center;
@@ -295,6 +295,161 @@ font-size: 0.7rem;
 }
 
 /* MODAL PRODUTO ---------------------------------------------------------------------*/
+.produto-modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color:rgba(92, 35, 8, 0.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    
+}
+.show {
+    display: flex;
+}
+
+@keyframes scale-in {
+    0% {
+      -webkit-transform: scale(0);
+              transform: scale(0);
+    }
+    100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }}
+.produto {
+    transition: all ease 0.4s;
+    max-width: 900px;
+    background-color:#ee7700;
+    border-radius:40px;
+    box-shadow:0px 0px 15px #111;
+    display:flex;
+   -webkit-animation: scale-in 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940);
+    animation: scale-in 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940);
+        
+}
+.produto-img {
+    height: 50vh;
+    width: 250px;
+    background-color: #f4ebdc;
+    border-radius: 40px ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.produto-img img {
+    width: 80%;
+}
+.produto-informacoes {
+    height: 50vh;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.produto-informacoes-area1 {
+    width: 100%;
+    padding: 1.5rem;
+    padding-top: 2.5rem;
+}
+.produto-informacoes-area1 h2 {
+    color: #f4ebdc;
+    font-size: 1.3rem;
+}
+.produto-informacoes-area1 p {
+    color: #471803;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.produto-informacoes-area2 {
+    padding: 1.5rem;
+    padding-top: 0;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+}
+.produto-informacoes-area2 h3{
+    color: #bf5900;
+    font-size: 0.9rem;
+}
+.produto-informacoes-area2 h2 {
+    color: #f4ebdc;
+    font-weight: 500;
+    font-size: 2rem;
+}
+.produto-quantidade {
+    display: flex;
+    align-items: center;
+    border: 2px solid #f4ebdc;
+    border-radius: 60px;
+    overflow: hidden;
+}
+.produto-quantidade h3 {
+    color: #f4ebdc;
+    font-weight: 500;
+    font-size: 2rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
+}
+.produto-quantidade button {
+    width: 50px;
+    height: 50px;
+    border: none;
+    cursor: pointer;
+    transition: all ease 0.3s;
+}
+.produto-quantidade button:hover {
+    background-color: #5c2308;
+}
+.produto-quantidade button h1 {
+    color: #ee7700;
+    font-size: 2.2rem;
+    font-weight: 500;
+}
+.produto-informacoes-area3 {
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+}
+.produto-informacoes-area3  button{
+    font-size: 0.9rem;
+    border: none;
+    font-weight: 700;
+    cursor: pointer;
+}
+#add {
+    background-color: #5c2308;
+    color: #ee7700;
+    border-radius: 30px;
+    padding: 1.2rem;
+    transition: all ease 0.3s;
+    
+}
+#add:hover {
+    background-color: #371200;
+}
+.cancela {
+    background-color: #ee7700;
+    color: #f4ebdc;
+    margin-left: 1rem;
+    font-size: 1.1rem;
+    transition: all ease 0.3s;
+}
+.cancela:hover {
+    color: #5c2308;
+}
+
+
+
+
+
+
 
 
 /* RESPONSIVIDADE ---------------------------------------------------------------------*/
@@ -351,5 +506,38 @@ font-size: 0.7rem;
         margin-left: 0px;
         margin-right: 20px;
         border-radius: 40px;
+    }
+}
+
+@media(max-width: 670px){
+    .produto {
+        flex-direction: column;
+        width: 95vw;
+    }
+    .produto-img {
+        height: 20vh;
+        width: 100%;
+        background-color: #f4ebdc;
+        border-radius: 40px ;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .produto-img img {
+        width: auto;
+        height: 80%;
+    }
+    .produto-informacoes-area1 {
+        width: 100%;
+        padding: 1.5rem;
+        padding-top: 1.5rem;
+    }
+    :root {
+        font-size: 14px;
+        
+    }
+    .produto-informacoes {
+        height: auto;
+        width: 100%;
     }
 }
