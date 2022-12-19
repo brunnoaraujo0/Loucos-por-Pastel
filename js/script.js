@@ -2,6 +2,7 @@ let produtosCarrinho = [];
 const produtoModal = document.querySelector('.produto-modal');
 const iconeCarrinho = document.querySelector('#header-carrinho');
 const modalCarrinho = document.querySelector('.modal-carrinho');
+const carrinhoQuantidade = document.querySelector('#header-carrinho button span');
 
 let marginHamburguer = 0;
 
@@ -120,8 +121,8 @@ hamburguerJson.map((item, index) => {
         })
         buttonAdd.addEventListener('click', ()=>{
             produtoModal.classList.remove("show");
-            modalCarrinho.classList.add("show");
             produtosCarrinho[index] = hamburguerJson[index];
+            carrinhoQuantidade.innerText = produtosCarrinho.length;
             console.log(produtosCarrinho);
             console.log(index);
         })
