@@ -1,8 +1,12 @@
 let produtosCarrinho = [];
+
 const produtoModal = document.querySelector('.produto-modal');
 const iconeCarrinho = document.querySelector('#header-carrinho');
 const modalCarrinho = document.querySelector('.modal-carrinho');
 const carrinhoQuantidade = document.querySelector('#header-carrinho button span');
+
+let keyCarrinho = 0;
+let keyEscolhido;
 
 let marginHamburguer = 0;
 
@@ -81,11 +85,13 @@ hamburguerJson.map((item, index) => {
 
     hamburguerDiv3.appendChild(hamburguerPrice);
     hamburguerDiv3.appendChild(hamburguerButton);
-    
     hamburguerButton.addEventListener('click', (e) => {
+        keyEscolhido = index; 
         
         e.preventDefault();
+        
         produtoModal.classList.add("show");
+
         let numeroQuantidade = 1;
         const modalTitle = document.querySelector(".produto-informacoes-area1 h2");
         const modalDescription = document.querySelector(".produto-informacoes-area1 p");
@@ -95,7 +101,7 @@ hamburguerJson.map((item, index) => {
         const buttonPlus = document.querySelector('.quantidade-plus');
         const buttonAdd = document.querySelector('#add');
         const quantidade = document.querySelector('.produto-quantidade .quantidade');
-
+        
         modalTitle.innerHTML = hamburguerJson[index].name;
         modalDescription.innerHTML = hamburguerJson[index].description;
         modalPrice.innerHTML = 'R$' + hamburguerJson[index].price.toFixed(2);
@@ -119,16 +125,8 @@ hamburguerJson.map((item, index) => {
         buttonCancel.addEventListener('click', () => {
             produtoModal.classList.remove("show");
         })
-        buttonAdd.addEventListener('click', ()=>{
-            produtoModal.classList.remove("show");
-            produtosCarrinho[index] = hamburguerJson[index];
-            carrinhoQuantidade.innerText = produtosCarrinho.length;
-            console.log(produtosCarrinho);
-            console.log(index);
-        })
-
-
-        console.log(hamburguerJson[index]);   
+        
+  
     })
 
     hamburguerList.appendChild(hamburguerDiv); 
@@ -136,6 +134,51 @@ hamburguerJson.map((item, index) => {
 
 })
 
+
+//EVENTOS ///////////////////////////////////////////////////////////////////////////////////////////////////Q
+
 iconeCarrinho.addEventListener('click', () => {
     modalCarrinho.classList.add("show");
 })
+
+document.querySelectorAll('#add').forEach((item) => {
+    item.addEventListener('click', () => {
+       addCarrinho(keyEscolhido);
+       produtoModal.classList.remove("show");
+    })
+
+})
+
+document.querySelector('.carrinho-seta').addEventListener('click', () => {
+    
+    modalCarrinho.classList.remove("show");
+    
+
+})
+
+//FUNCOES ////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+function addCarrinho(keyEscolhido){
+    const compra = new Object();
+    compra.quantidade = document.querySelector('.produto-quantidade .quantidade').innerText;
+    compra.produto = hamburguerJson[keyEscolhido];
+    produtosCarrinho[keyCarrinho] = compra;
+    keyCarrinho = keyCarrinho + 1;
+    
+    console.log(produtosCarrinho);
+    produtoModal.classList.remove("show");
+    contagemCarrinho();
+}
+
+
+function contagemCarrinho(){
+    let qt = 0;
+    produtosCarrinho.forEach((item) => {
+        qt = qt + parseInt(item.quantidade);
+         
+    })
+    carrinhoQuantidade.innerText = qt;
+    
+}

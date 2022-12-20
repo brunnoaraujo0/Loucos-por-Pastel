@@ -486,7 +486,7 @@ font-size: 0.7rem;
   
     to {
      height: 100%;
-      width: 40vw;
+      width: 700px;
     }
   }
 
@@ -505,15 +505,89 @@ font-size: 0.7rem;
     justify-content: end; 
 }
 .carrinho {
-    width: 40vw;
+    width: 700px;
     height: 100vh;
     background-color: #371200;
     border-top-left-radius: 40px;
     border-bottom-left-radius: 40px;
     animation-duration: 0.8s;
     animation-name: slidein;
-
+    padding: 5%;
 }
+.carrinho-seta button {
+    background-color: #371200;
+    border: none;
+}
+.carrinho-seta button > svg path {
+   
+    fill: #ee7700;
+    transition: all ease 0.3s;
+    cursor: pointer;
+}
+.carrinho-seta button:hover > svg path {
+   
+    fill: #f4ebdc; 
+}
+.carrinho-seupedido {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ee7700;
+    font-size: 1.5rem;
+}
+.carrinho-item {
+    display: flex;
+    background-color: #5c2308;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 1.3rem;
+    padding: 1rem;
+    margin-top: 20px;
+}
+.carrinho-item div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.carrinho-item h2 {
+    font-size: 1rem;
+    color: #ee7700;
+}
+.carrinho-item h3 {
+    font-size: 1rem;
+    color: #471803;
+    background-color: #ee7700;
+    border-radius: 1rem;
+    padding: 5px;
+    margin-right: 10px;
+}
+.carrinho-item h4 {
+    color: #f4ebdc;
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+.carrinho-item button {
+    background-color: #5c2308;
+    border: none;
+    padding: 0.3rem;
+    border-radius: 1rem;
+    margin-left: 10px;
+    cursor: pointer;
+}
+.carrinho-item button > svg path {
+   
+    fill: #ee7700;
+    transition: all ease 0.3s;
+    cursor: pointer;
+}
+.carrinho-item button:hover > svg path {
+   
+    fill: #f4ebdc; 
+}
+
+
+
 .show {
     display: flex;
 }
