@@ -8,12 +8,14 @@ const carrinhoProdutos = document.querySelector('.area-carrinho-pedidos');
 
 let keyCarrinho = 0;
 let keyEscolhido;
+let itemEscolhido;
 
 let marginHamburguer = 0;
+let marginpizza = 0;
 
-// CARROSEL ///////////////////////////////////////////////////////////////////////////////////////////
+// CARROSEL HAMBURGUER ///////////////////////////////////////////////////////////////////////////////////////////
 
-document.querySelector('.setaLeft').addEventListener('click', ()=> {
+document.querySelector('.hamburguer-setaLeft-icone').addEventListener('click', ()=> {
    
     if(window.innerWidth >460){
     marginHamburguer = marginHamburguer + 340;
@@ -31,7 +33,7 @@ document.querySelector('.setaLeft').addEventListener('click', ()=> {
     }
 })
 
-document.querySelector('.setaRigth').addEventListener('click', () => {
+document.querySelector('.hamburguer-setaRigth-icone').addEventListener('click', () => {
     if(window.innerWidth > 460){
     let x = marginHamburguer - 340;
     if((window.innerWidth - 4080) > x){
@@ -46,6 +48,48 @@ document.querySelector('.setaRigth').addEventListener('click', () => {
             marginHamburguer = 0;
         }
         document.querySelector('.hamburguer-list').style.marginLeft = marginHamburguer + 'px';
+    }
+})
+
+
+
+
+// CARROSEL PIZZA ///////////////////////////////////////////////////////////////////////////////////////////
+
+
+document.querySelector('.pizza-setaLeft-icone').addEventListener('click', ()=> {
+   
+    if(window.innerWidth >460){
+    marginpizza = marginpizza + 340;
+    if(marginpizza > 0){
+        marginpizza = 0;
+    }
+    
+    document.querySelector('.pizza-list').style.marginLeft = marginpizza  + 'px';}
+    else {
+        marginpizza = marginpizza + (window.innerWidth - 60);
+        if(marginpizza > 0){
+            marginpizza = 0;
+        }
+        document.querySelector('.pizza-list').style.marginLeft = marginpizza + 'px'; ;
+    }
+})
+
+document.querySelector('.pizza-setaRigth-icone').addEventListener('click', () => {
+    if(window.innerWidth > 460){
+    let x = marginpizza - 340;
+    if((window.innerWidth - 4420) > x){
+        x = 0;
+    }
+    marginpizza = x;
+    document.querySelector('.pizza-list').style.marginLeft = marginpizza + 'px';}
+    else{
+        marginpizza = marginpizza - (window.innerWidth - 60)  ;
+        let x = -(window.innerWidth * 11) - 10;
+        if(marginpizza < x){
+            marginpizza = 0;
+        }
+        document.querySelector('.pizza-list').style.marginLeft = marginpizza + 'px';
     }
 })
 
@@ -87,7 +131,8 @@ hamburguerJson.map((item, index) => {
     hamburguerDiv3.appendChild(hamburguerPrice);
     hamburguerDiv3.appendChild(hamburguerButton);
     hamburguerButton.addEventListener('click', (e) => {
-        keyEscolhido = index; 
+        keyEscolhido = index;
+        itemEscolhido = 0;
         
         e.preventDefault();
         
@@ -102,10 +147,11 @@ hamburguerJson.map((item, index) => {
         const buttonPlus = document.querySelector('.quantidade-plus');
         const buttonAdd = document.querySelector('#add');
         const quantidade = document.querySelector('.produto-quantidade .quantidade');
-        
+        const modalImg = document.querySelector('.produto-img img');
         modalTitle.innerHTML = hamburguerJson[index].name;
         modalDescription.innerHTML = hamburguerJson[index].description;
         modalPrice.innerHTML = 'R$' + hamburguerJson[index].price.toFixed(2);
+        modalImg.src = hamburguerJson[index].img;
 
         quantidade.innerHTML = numeroQuantidade;
 
@@ -136,10 +182,101 @@ hamburguerJson.map((item, index) => {
 })
 
 
-//EVENTOS ///////////////////////////////////////////////////////////////////////////////////////////////////Q
+
+// ADICIONANDO PIZZAS ///////////////////////////////////////////////////////////////////////////////////////////
+
+pizzaJson.map((item, index) => {
+    const pizzaList = document.querySelector('.pizza-list');
+    const pizzaDiv = document.createElement("div"); 
+    pizzaDiv.classList.add("pizza-item");
+    pizzaList.appendChild(pizzaDiv);
+    
+    const pizzaDiv1 = document.createElement("div"); 
+    pizzaDiv1.classList.add("pizza-item-area1");
+    pizzaDiv.appendChild(pizzaDiv1);
+    const pizzaImg = document.createElement("img");
+    pizzaImg.src = item.img;
+    pizzaDiv1.appendChild(pizzaImg);
+   
+    const pizzaDiv2 = document.createElement("div"); 
+    pizzaDiv2.classList.add("pizza-item-area2");
+    pizzaDiv.appendChild(pizzaDiv2);
+    const pizzaTitle = document.createElement("h2"); 
+    const pizzaDescriptopn = document.createElement("p");
+    pizzaTitle.innerText = item.name;
+    pizzaDescriptopn.innerHTML = item.description;
+    pizzaDiv2.appendChild(pizzaTitle);
+    pizzaDiv2.appendChild(pizzaDescriptopn);
+
+    const pizzaDiv3 = document.createElement("div"); 
+    pizzaDiv3.classList.add("pizza-item-area3");
+    pizzaDiv.appendChild(pizzaDiv3);
+    const pizzaPrice = document.createElement("h2"); 
+    const pizzaButton = document.createElement("div");
+    pizzaPrice.innerText = 'R$' + item.price.toFixed(2);
+    pizzaButton.classList.add("pizza-plus");
+    pizzaButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path d="M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z"/></svg>'
+
+    pizzaDiv3.appendChild(pizzaPrice);
+    pizzaDiv3.appendChild(pizzaButton);
+    pizzaButton.addEventListener('click', (e) => {
+        keyEscolhido = index;
+        itemEscolhido = 1;
+         
+        
+        e.preventDefault();
+        
+        produtoModal.classList.add("show");
+
+        let numeroQuantidade = 1;
+        const modalTitle = document.querySelector(".produto-informacoes-area1 h2");
+        const modalDescription = document.querySelector(".produto-informacoes-area1 p");
+        const modalPrice = document.querySelector(".produto-preco h2");
+        const buttonCancel = document.querySelector('.cancela');
+        const buttonLess = document.querySelector('.quantidade-less');
+        const buttonPlus = document.querySelector('.quantidade-plus');
+        const modalImg = document.querySelector('.produto-img img');
+        const buttonAdd = document.querySelector('#add');
+        const quantidade = document.querySelector('.produto-quantidade .quantidade');
+        
+        modalTitle.innerHTML = pizzaJson[index].name;
+        modalDescription.innerHTML = pizzaJson[index].description;
+        modalPrice.innerHTML = 'R$' + pizzaJson[index].price.toFixed(2);
+        modalImg.src = pizzaJson[index].img;
+        quantidade.innerHTML = numeroQuantidade;
+
+        buttonLess.addEventListener('click', ()=> {
+            numeroQuantidade = numeroQuantidade - 1;
+            if(numeroQuantidade <= 0){
+                numeroQuantidade = 1
+            }
+            quantidade.innerHTML = numeroQuantidade;
+        })
+
+        buttonPlus.addEventListener('click', () => {
+            numeroQuantidade = numeroQuantidade +1;
+            quantidade.innerHTML = numeroQuantidade;
+        })
+
+
+        buttonCancel.addEventListener('click', () => {
+            produtoModal.classList.remove("show");
+        })
+        
+  
+    })
+
+    pizzaList.appendChild(pizzaDiv); 
+
+
+})
+
+
+//EVENTOS ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 iconeCarrinho.addEventListener('click', () => {
     modalCarrinho.classList.add("show");
+    document.querySelector('.carrinho').style.animationName = 'slidein';
     carrinhoProdutos.innerHTML = "";
     let totalItens = 0;
     produtosCarrinho.forEach((item, index) => {
@@ -185,24 +322,27 @@ iconeCarrinho.addEventListener('click', () => {
 
 document.querySelectorAll('#add').forEach((item) => {
     item.addEventListener('click', () => {
-       addCarrinho(keyEscolhido);
+       addCarrinho(keyEscolhido, itemEscolhido);
        produtoModal.classList.remove("show");
     })
-
 })
+
 
 
 
 
 document.querySelector('.carrinho-seta button').addEventListener('click', () => {
-    
-    modalCarrinho.classList.remove("show");
-    
-
+    document.querySelector('.carrinho').style.animationName = 'slideout';
+    setTimeout(() => {
+        modalCarrinho.classList.remove("show");
+    }, 500); 
 })
 
 document.querySelector('.area-adicionar-mais-itens button').addEventListener('click', () =>{
-    modalCarrinho.classList.remove("show");
+    document.querySelector('.carrinho').style.animationName = 'slideout';
+    setTimeout(() => {
+        modalCarrinho.classList.remove("show");
+    }, 500); 
     
 })
 
@@ -211,11 +351,17 @@ document.querySelector('.area-adicionar-mais-itens button').addEventListener('cl
 
 
 
-function addCarrinho(keyEscolhido){
+function addCarrinho(keyEscolhido, itemEscolhido){
     const compra = new Object();
     compra.quantidade = document.querySelector('.produto-quantidade .quantidade').innerText;
-    compra.produto = hamburguerJson[keyEscolhido];
-    produtosCarrinho[keyCarrinho] = compra;
+    if(itemEscolhido == 0){
+        compra.produto = hamburguerJson[keyEscolhido];
+        produtosCarrinho[keyCarrinho] = compra;
+    }
+    else if(itemEscolhido == 1){
+        compra.produto = pizzaJson[keyEscolhido];
+        produtosCarrinho[keyCarrinho] = compra;
+    }
     keyCarrinho = keyCarrinho + 1;
     
     console.log(produtosCarrinho);
