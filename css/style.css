@@ -207,6 +207,7 @@ font-size: 0.7rem;
 }
 #pizzas h1,
 #hamburguer h1{
+    margin-left: 60px;
    color: #5c2308;
    font-size: 2.6rem;
 }
@@ -309,12 +310,13 @@ font-size: 0.7rem;
 .pizza-item-area2 h2,
 .hamburguer-item-area2 h2 {
     color: #ee7700;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
+    line-height: 20px;
 }
 .pizza-item-area2 p,
 .hamburguer-item-area2 p{
     color: antiquewhite;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     margin-top: 5px;
 }
 .pizza-item-area3,
@@ -726,6 +728,10 @@ font-size: 0.7rem;
        align-items: center;
        justify-content: center;
        flex-direction: column;
+      }
+      #pizzas h1,
+    #hamburguer h1 {
+       margin-left: 0px;
       }
 
 }

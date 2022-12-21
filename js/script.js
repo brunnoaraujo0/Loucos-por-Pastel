@@ -1,17 +1,23 @@
-let produtosCarrinho = [];
+let produtosCarrinho = []; //Array que guarda os pedidos
 
 const produtoModal = document.querySelector('.produto-modal');
 const iconeCarrinho = document.querySelector('#header-carrinho');
 const modalCarrinho = document.querySelector('.modal-carrinho');
 const carrinhoQuantidade = document.querySelector('#header-carrinho button span');
 const carrinhoProdutos = document.querySelector('.area-carrinho-pedidos');
+const todosButaoAdd = document.querySelectorAll('#add');
+const setaFecharCarrinho = document.querySelector('.carrinho-seta button');
+const botaoAddMaisItens = document.querySelector('.area-adicionar-mais-itens button');
 
-let keyCarrinho = 0;
-let keyEscolhido;
-let itemEscolhido;
+let keyCarrinho = 0; //variavel que guarda o index da lista do carrinho
+let keyEscolhido;  //variavel que guarda qual item voce clicou para comprar
+let itemEscolhido; //variavel que guarda o tipo de lanche escolhido, pizza, hamburguer etc...
 
-let marginHamburguer = 0;
-let marginpizza = 0;
+let marginHamburguer = 0; //Margin para movimentar o carrosel de hamburguer
+let marginpizza = 0; //Margin para movimentar o carrosel de pizza
+
+
+
 
 // CARROSEL HAMBURGUER ///////////////////////////////////////////////////////////////////////////////////////////
 
@@ -50,6 +56,7 @@ document.querySelector('.hamburguer-setaRigth-icone').addEventListener('click', 
         document.querySelector('.hamburguer-list').style.marginLeft = marginHamburguer + 'px';
     }
 })
+
 
 
 
@@ -94,13 +101,16 @@ document.querySelector('.pizza-setaRigth-icone').addEventListener('click', () =>
 })
 
 
-// ADICIONANDO HAMBURGUER ///////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+// MAPEANDO LISTA DE HAMBURGUER ///////////////////////////////////////////////////////////////////////////////////////////
 
 hamburguerJson.map((item, index) => {
     const hamburguerList = document.querySelector('.hamburguer-list');
-    const hamburguerDiv = document.createElement("div"); //cria um h3
-    hamburguerDiv.classList.add("hamburguer-item"); //adiciona uma class finish-todo ao botao
-    hamburguerList.appendChild(hamburguerDiv); // adiciona o botao na div todo
+    const hamburguerDiv = document.createElement("div"); 
+    hamburguerDiv.classList.add("hamburguer-item"); 
+    hamburguerList.appendChild(hamburguerDiv); 
     
     const hamburguerDiv1 = document.createElement("div"); 
     hamburguerDiv1.classList.add("hamburguer-item-area1");
@@ -183,7 +193,7 @@ hamburguerJson.map((item, index) => {
 
 
 
-// ADICIONANDO PIZZAS ///////////////////////////////////////////////////////////////////////////////////////////
+// MAPEANDO LISTA DE PIZZAS ///////////////////////////////////////////////////////////////////////////////////////////
 
 pizzaJson.map((item, index) => {
     const pizzaList = document.querySelector('.pizza-list');
@@ -245,7 +255,7 @@ pizzaJson.map((item, index) => {
         modalImg.src = pizzaJson[index].img;
         quantidade.innerHTML = numeroQuantidade;
 
-        buttonLess.addEventListener('click', ()=> {
+        buttonLess.addEventListener('click', ()=> { //Botão de tirar 1 item do modal 1
             numeroQuantidade = numeroQuantidade - 1;
             if(numeroQuantidade <= 0){
                 numeroQuantidade = 1
@@ -253,13 +263,13 @@ pizzaJson.map((item, index) => {
             quantidade.innerHTML = numeroQuantidade;
         })
 
-        buttonPlus.addEventListener('click', () => {
+        buttonPlus.addEventListener('click', () => { //Botão de adicionar 1 item do modal 1
             numeroQuantidade = numeroQuantidade +1;
             quantidade.innerHTML = numeroQuantidade;
         })
 
 
-        buttonCancel.addEventListener('click', () => {
+        buttonCancel.addEventListener('click', () => { //Botão cancelar do modal 1
             produtoModal.classList.remove("show");
         })
         
@@ -272,79 +282,54 @@ pizzaJson.map((item, index) => {
 })
 
 
+
+
+
+
+
+
 //EVENTOS ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-iconeCarrinho.addEventListener('click', () => {
-    modalCarrinho.classList.add("show");
-    document.querySelector('.carrinho').style.animationName = 'slidein';
-    carrinhoProdutos.innerHTML = "";
-    let totalItens = 0;
-    produtosCarrinho.forEach((item, index) => {
-        const carrinhoItem = document.createElement("div");
-        carrinhoItem.classList.add("carrinho-item");
-        const carrinhodiv1 = document.createElement("div");
-        const carrinhoqt = document.createElement("h3");
-        carrinhoqt.innerText = item.quantidade + "x";
-        const carrinhoNome = document.createElement("h2");
-        carrinhoNome.innerText = item.produto.type + "\n" + item.produto.name;
-        const carrinhodiv2 = document.createElement("div");
-        const carrinhoPrice = document.createElement("h4");
-        const valorReal =  item.quantidade * item.produto.price.toFixed(2)
-        carrinhoPrice.innerText = "R$" + valorReal.toFixed(2);
-        const carrinhoButton = document.createElement("button");
-        carrinhoButton.classList.add("butao-delete");
-        const carrinhoSpan = document.createElement("span");
-        carrinhoSpan.classList.add("material-symbols-outlined");
-        carrinhoSpan.innerText = "delete_forever";
-        totalItens = totalItens + valorReal;
-        document.querySelector('.carrinho .total-itens h2').innerText = "R$" + totalItens.toFixed(2);
-        carrinhoButton.appendChild(carrinhoSpan);
-        carrinhodiv2.appendChild(carrinhoPrice);
-        carrinhodiv2.appendChild(carrinhoButton);
-        carrinhodiv1.appendChild(carrinhoqt);
-        carrinhodiv1.appendChild(carrinhoNome);
-        carrinhoItem.appendChild(carrinhodiv1);
-        carrinhoItem.appendChild(carrinhodiv2);
-
-        carrinhoButton.addEventListener('click', () => {
-            item.quantidade = item.quantidade -1;
-            carrinhoqt.innerText = item.quantidade + "x";
-            if(item.quantidade <= 0){
-                produtosCarrinho.splice(index, 1);
-            }
-            
-        })
-
-
-        carrinhoProdutos.appendChild(carrinhoItem); // adiciona o botao na div todo
-    })
+iconeCarrinho.addEventListener('click', () => { //Botao do carrinho para mostrar os pedidos
+    mostrarPedidos();
 })
 
-document.querySelectorAll('#add').forEach((item) => {
+
+
+todosButaoAdd.forEach((item) => { //Botão adicionar o item no carrinho
     item.addEventListener('click', () => {
        addCarrinho(keyEscolhido, itemEscolhido);
        produtoModal.classList.remove("show");
+       mostrarPedidos();
     })
 })
 
 
-
-
-
-document.querySelector('.carrinho-seta button').addEventListener('click', () => {
+setaFecharCarrinho.addEventListener('click', () => { //Botao da seta fechar o carrinho
     document.querySelector('.carrinho').style.animationName = 'slideout';
     setTimeout(() => {
         modalCarrinho.classList.remove("show");
     }, 500); 
 })
 
-document.querySelector('.area-adicionar-mais-itens button').addEventListener('click', () =>{
+
+
+botaoAddMaisItens.addEventListener('click', () =>{ //Botão adicionar mais itens
     document.querySelector('.carrinho').style.animationName = 'slideout';
     setTimeout(() => {
         modalCarrinho.classList.remove("show");
     }, 500); 
     
 })
+
+
+
+
+
+
+
+
+
 
 
 //FUNCOES ////////////////////////////////////////////////////////////////////////////////////////
@@ -366,16 +351,64 @@ function addCarrinho(keyEscolhido, itemEscolhido){
     
     console.log(produtosCarrinho);
     produtoModal.classList.remove("show");
-    contagemCarrinho();
+    contagemCarrinho();  
 }
 
 
-function contagemCarrinho(){
+function contagemCarrinho(){ //funcao que conta quantos itens tem no carrinho
     let qt = 0;
     produtosCarrinho.forEach((item) => {
         qt = qt + parseInt(item.quantidade);
          
     })
-    carrinhoQuantidade.innerText = qt;
-    
+    carrinhoQuantidade.innerText = qt;  
+}
+
+
+
+function mostrarPedidos(){
+    modalCarrinho.classList.add("show");
+    document.querySelector('.carrinho').style.animationName = 'slidein';
+    carrinhoProdutos.innerHTML = "";
+    let totalItens = 0;
+
+
+    produtosCarrinho.forEach((item, index) => {
+        const carrinhoItem = document.createElement("div");
+        const carrinhodiv1 = document.createElement("div");
+        const carrinhoqt = document.createElement("h3");
+        const carrinhoNome = document.createElement("h2");
+        const carrinhodiv2 = document.createElement("div");
+        const carrinhoPrice = document.createElement("h4");
+        const valorReal =  item.quantidade * item.produto.price.toFixed(2);
+        const carrinhoButton = document.createElement("button");
+        const carrinhoSpan = document.createElement("span");
+
+        carrinhoItem.classList.add("carrinho-item");
+        carrinhoqt.innerText = item.quantidade + "x";
+        carrinhoNome.innerText = item.produto.type + "\n" + item.produto.name;
+        carrinhoPrice.innerText = "R$" + valorReal.toFixed(2);
+        carrinhoButton.classList.add("butao-delete");
+        carrinhoSpan.classList.add("material-symbols-outlined");
+        carrinhoSpan.innerText = "delete_forever";
+        totalItens = totalItens + valorReal;
+        document.querySelector('.carrinho .total-itens h2').innerText = "R$" + totalItens.toFixed(2);
+        carrinhoButton.appendChild(carrinhoSpan);
+        carrinhodiv2.appendChild(carrinhoPrice);
+        carrinhodiv2.appendChild(carrinhoButton);
+        carrinhodiv1.appendChild(carrinhoqt);
+        carrinhodiv1.appendChild(carrinhoNome);
+        carrinhoItem.appendChild(carrinhodiv1);
+        carrinhoItem.appendChild(carrinhodiv2);
+
+        carrinhoButton.addEventListener('click', () => {
+            item.quantidade = item.quantidade -1;
+            produtosCarrinho.splice(index, 1);
+            mostrarPedidos();
+            contagemCarrinho();
+
+        })
+
+        carrinhoProdutos.appendChild(carrinhoItem); 
+    })
 }
