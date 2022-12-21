@@ -4,6 +4,7 @@ const produtoModal = document.querySelector('.produto-modal');
 const iconeCarrinho = document.querySelector('#header-carrinho');
 const modalCarrinho = document.querySelector('.modal-carrinho');
 const carrinhoQuantidade = document.querySelector('#header-carrinho button span');
+const carrinhoProdutos = document.querySelector('.area-carrinho-pedidos');
 
 let keyCarrinho = 0;
 let keyEscolhido;
@@ -31,16 +32,16 @@ document.querySelector('.setaLeft').addEventListener('click', ()=> {
 })
 
 document.querySelector('.setaRigth').addEventListener('click', () => {
-    if(window.innerWidth >460){
+    if(window.innerWidth > 460){
     let x = marginHamburguer - 340;
-    if((window.innerWidth - 3060) > x){
+    if((window.innerWidth - 4080) > x){
         x = 0;
     }
     marginHamburguer = x;
     document.querySelector('.hamburguer-list').style.marginLeft = marginHamburguer + 'px';}
     else{
         marginHamburguer = marginHamburguer - (window.innerWidth - 60)  ;
-        let x = -(window.innerWidth * 6) - 1;
+        let x = -(window.innerWidth * 10) - 10;
         if(marginHamburguer < x){
             marginHamburguer = 0;
         }
@@ -139,6 +140,47 @@ hamburguerJson.map((item, index) => {
 
 iconeCarrinho.addEventListener('click', () => {
     modalCarrinho.classList.add("show");
+    carrinhoProdutos.innerHTML = "";
+    let totalItens = 0;
+    produtosCarrinho.forEach((item, index) => {
+        const carrinhoItem = document.createElement("div");
+        carrinhoItem.classList.add("carrinho-item");
+        const carrinhodiv1 = document.createElement("div");
+        const carrinhoqt = document.createElement("h3");
+        carrinhoqt.innerText = item.quantidade + "x";
+        const carrinhoNome = document.createElement("h2");
+        carrinhoNome.innerText = item.produto.type + "\n" + item.produto.name;
+        const carrinhodiv2 = document.createElement("div");
+        const carrinhoPrice = document.createElement("h4");
+        const valorReal =  item.quantidade * item.produto.price.toFixed(2)
+        carrinhoPrice.innerText = "R$" + valorReal.toFixed(2);
+        const carrinhoButton = document.createElement("button");
+        carrinhoButton.classList.add("butao-delete");
+        const carrinhoSpan = document.createElement("span");
+        carrinhoSpan.classList.add("material-symbols-outlined");
+        carrinhoSpan.innerText = "delete_forever";
+        totalItens = totalItens + valorReal;
+        document.querySelector('.carrinho .total-itens h2').innerText = "R$" + totalItens.toFixed(2);
+        carrinhoButton.appendChild(carrinhoSpan);
+        carrinhodiv2.appendChild(carrinhoPrice);
+        carrinhodiv2.appendChild(carrinhoButton);
+        carrinhodiv1.appendChild(carrinhoqt);
+        carrinhodiv1.appendChild(carrinhoNome);
+        carrinhoItem.appendChild(carrinhodiv1);
+        carrinhoItem.appendChild(carrinhodiv2);
+
+        carrinhoButton.addEventListener('click', () => {
+            item.quantidade = item.quantidade -1;
+            carrinhoqt.innerText = item.quantidade + "x";
+            if(item.quantidade <= 0){
+                produtosCarrinho.splice(index, 1);
+            }
+            
+        })
+
+
+        carrinhoProdutos.appendChild(carrinhoItem); // adiciona o botao na div todo
+    })
 })
 
 document.querySelectorAll('#add').forEach((item) => {
@@ -149,12 +191,21 @@ document.querySelectorAll('#add').forEach((item) => {
 
 })
 
-document.querySelector('.carrinho-seta').addEventListener('click', () => {
+
+
+
+document.querySelector('.carrinho-seta button').addEventListener('click', () => {
     
     modalCarrinho.classList.remove("show");
     
 
 })
+
+document.querySelector('.area-adicionar-mais-itens button').addEventListener('click', () =>{
+    modalCarrinho.classList.remove("show");
+    
+})
+
 
 //FUNCOES ////////////////////////////////////////////////////////////////////////////////////////
 
