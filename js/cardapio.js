@@ -38,3 +38,16 @@ let pastelJson = [
     {id:8, name:'Carne de sol', img:'imagens/pastel.png', price:22.00, description:'4x carne, ovo, salada, queijo, cheddar, presunto, bateta palha, carne de sol, e frango.', type: 'Pastel'},
     {id:9, name:'Carne a moda', img:'imagens/pastel.png', price:10.00, description:'Carne, ovo, queijo, presunto, bacon e salada.', type: 'Pastel'},
 ];
+
+let petiscoJson = [
+    {id:0, name:'Batata Fritas', img:'imagens/pastel.png', price:6.00, description:'Opcionais: Cheddar, Catupiry ou Queijo Ralado', type: 'Batata de 6'},
+    {id:1, name:'Batata Fritas', img:'imagens/pastel.png', price:8.00, description:'Opcionais: Cheddar, Catupiry ou Queijo Ralado', type: 'Batata de 8'},
+    {id:2, name:'Iscas de frango c/ Fritas', img:'imagens/pastel.png', price:10.00, description:' ', type: 'Petisco'},
+    {id:3, name:'Filé c/ Fritas', img:'imagens/pastel.png', price:13.00, description:' ', type: 'Petisco'},
+    {id:4, name:'Camarão c/ Fritas e salada', img:'imagens/pastel.png', price:9.00, description:' ', type: 'Pastel'},
+    {id:5, name:'Calabresa c/ Cheddar', img:'imagens/pastel.png', price:12.00, description:'Carne, ovo, catupiry, bacon, calabresa e salada.', type: 'Pastel'},
+    {id:6, name:'Português', img:'imagens/pastel.png', price:15.00, description:'2x carne, ovo, queijo, presunto, salada, bacon, calabresa e frango.', type: 'Pastel'},
+    {id:7, name:'Frango', img:'imagens/pastel.png', price:14.00, description:'Pão americano, 4 carnes, bacon, queijo prato e salada.', type: 'Pastel'},
+    {id:8, name:'Carne de sol', img:'imagens/pastel.png', price:22.00, description:'4x carne, ovo, salada, queijo, cheddar, presunto, bateta palha, carne de sol, e frango.', type: 'Pastel'},
+    {id:9, name:'Carne a moda', img:'imagens/pastel.png', price:10.00, description:'Carne, ovo, queijo, presunto, bacon e salada.', type: 'Pastel'},
+];

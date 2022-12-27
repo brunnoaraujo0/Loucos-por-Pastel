@@ -558,7 +558,7 @@ function scrollToIdOnClick(event) { //esse event e passado cada a cada vez que e
     const to = document.querySelector(id).offsetTop; //esse offsettop pega o top da section
 
     window.scroll({
-        top: to - 100,
+        top: to - 160,
         behavior: "smooth",
     })
 }
