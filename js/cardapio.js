@@ -25,3 +25,16 @@ let pizzaJson = [
     {id:9, name:'4 Queijos', img:'imagens/pizza.png', price:10.00, description:'Carne, ovo, queijo, presunto, bacon e salada.', type: 'Pizza'},
     {id:10, name:'Presunto', img:'imagens/pizza.png', price:10.00, description:'Carne, ovo, queijo, presunto, bacon e salada.', type: 'Pizza'}
 ];
+
+let pastelJson = [
+    {id:0, name:'Mussarela', img:'imagens/pastel.png', price:8.00, description:'Queijo Mussarela.', type: 'Pastel'},
+    {id:1, name:'Calabresa', img:'imagens/pastel.png', price:11.00, description:'Queijo mussarela, calabresa e cebola.', type: 'Pastel'},
+    {id:2, name:'Queijo coalho', img:'imagens/pastel.png', price:10.00, description:'Queijo coelho', type: 'Pastel'},
+    {id:3, name:'Pizza', img:'imagens/pastel.png', price:13.00, description:'Queijo mussarela, presunto, tomate e orégano..', type: 'Pastel'},
+    {id:4, name:'Calabresa c/ Requeijão', img:'imagens/pastel.png', price:9.00, description:'2x carne, queijo cheddar, bacon, tomate e cebola.', type: 'Pastel'},
+    {id:5, name:'Calabresa c/ Cheddar', img:'imagens/pastel.png', price:12.00, description:'Carne, ovo, catupiry, bacon, calabresa e salada.', type: 'Pastel'},
+    {id:6, name:'Português', img:'imagens/pastel.png', price:15.00, description:'2x carne, ovo, queijo, presunto, salada, bacon, calabresa e frango.', type: 'Pastel'},
+    {id:7, name:'Frango', img:'imagens/pastel.png', price:14.00, description:'Pão americano, 4 carnes, bacon, queijo prato e salada.', type: 'Pastel'},
+    {id:8, name:'Carne de sol', img:'imagens/pastel.png', price:22.00, description:'4x carne, ovo, salada, queijo, cheddar, presunto, bateta palha, carne de sol, e frango.', type: 'Pastel'},
+    {id:9, name:'Carne a moda', img:'imagens/pastel.png', price:10.00, description:'Carne, ovo, queijo, presunto, bacon e salada.', type: 'Pastel'},
+];

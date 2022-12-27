@@ -8,6 +8,7 @@ const carrinhoProdutos = document.querySelector('.area-carrinho-pedidos');
 const todosButaoAdd = document.querySelectorAll('#add');
 const setaFecharCarrinho = document.querySelector('.carrinho-seta button');
 const botaoAddMaisItens = document.querySelector('.area-adicionar-mais-itens button');
+const modalTamanho = document.querySelector('.produto-pizza-tamanho');
 
 let keyCarrinho = 0; //variavel que guarda o index da lista do carrinho
 let keyEscolhido;  //variavel que guarda qual item voce clicou para comprar
@@ -15,7 +16,7 @@ let itemEscolhido; //variavel que guarda o tipo de lanche escolhido, pizza, hamb
 
 let marginHamburguer = 0; //Margin para movimentar o carrosel de hamburguer
 let marginpizza = 0; //Margin para movimentar o carrosel de pizza
-
+let marginPastel = 0; //Margin para movimentar o carrosel de pizza
 
 
 
@@ -102,6 +103,45 @@ document.querySelector('.pizza-setaRigth-icone').addEventListener('click', () =>
 
 
 
+// CARROSEL PASTEL ///////////////////////////////////////////////////////////////////////////////////////////
+
+document.querySelector('.pastel-setaLeft-icone').addEventListener('click', ()=> {
+   
+    if(window.innerWidth >460){
+    marginPastel = marginPastel + 340;
+    if(marginPastel > 0){
+        marginPastel = 0;
+    }
+    
+    document.querySelector('.pastel-list').style.marginLeft = marginPastel  + 'px';}
+    else {
+        marginPastel = marginPastel + (window.innerWidth - 60);
+        if(marginPastel > 0){
+            marginPastel = 0;
+        }
+        document.querySelector('.pastel-list').style.marginLeft = marginPastel + 'px'; ;
+    }
+})
+
+document.querySelector('.pastel-setaRigth-icone').addEventListener('click', () => {
+    if(window.innerWidth > 460){
+    let x = marginPastel - 340;
+    if((window.innerWidth - 4080) > x){
+        x = 0;
+    }
+    marginPastel = x;
+    document.querySelector('.pastel-list').style.marginLeft = marginPastel + 'px';}
+    else{
+        marginPastel = marginPastel - (window.innerWidth - 60)  ;
+        let x = -(window.innerWidth * 10) - 10;
+        if(marginPastel < x){
+            marginPastel = 0;
+        }
+        document.querySelector('.pastel-list').style.marginLeft = marginPastel + 'px';
+    }
+})
+
+
 
 
 // MAPEANDO LISTA DE HAMBURGUER ///////////////////////////////////////////////////////////////////////////////////////////
@@ -145,7 +185,7 @@ hamburguerJson.map((item, index) => {
         itemEscolhido = 0;
         
         e.preventDefault();
-        
+        modalTamanho.style.display = 'none';
         produtoModal.classList.add("show");
 
         let numeroQuantidade = 1;
@@ -223,7 +263,6 @@ pizzaJson.map((item, index) => {
     pizzaDiv.appendChild(pizzaDiv3);
     const pizzaPrice = document.createElement("h2"); 
     const pizzaButton = document.createElement("div");
-    pizzaPrice.innerText = 'R$' + item.price.toFixed(2);
     pizzaButton.classList.add("pizza-plus");
     pizzaButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path d="M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z"/></svg>'
 
@@ -233,7 +272,7 @@ pizzaJson.map((item, index) => {
         keyEscolhido = index;
         itemEscolhido = 1;
          
-        
+        modalTamanho.style.display = 'flex';
         e.preventDefault();
         
         produtoModal.classList.add("show");
@@ -282,9 +321,92 @@ pizzaJson.map((item, index) => {
 })
 
 
+// MAPEANDO LISTA DE PIZZAS ///////////////////////////////////////////////////////////////////////////////////////////
+
+pastelJson.map((item, index) => {
+    const pastelList = document.querySelector('.pastel-list');
+    const pastelDiv = document.createElement("div"); 
+    pastelDiv.classList.add("pastel-item"); 
+    pastelList.appendChild(pastelDiv); 
+    
+    const pastelDiv1 = document.createElement("div"); 
+    pastelDiv1.classList.add("pastel-item-area1");
+    pastelDiv.appendChild(pastelDiv1);
+    const pastelImg = document.createElement("img");
+    pastelImg.src = item.img;
+    pastelDiv1.appendChild(pastelImg);
+   
+    const pastelDiv2 = document.createElement("div"); 
+    pastelDiv2.classList.add("pastel-item-area2");
+    pastelDiv.appendChild(pastelDiv2);
+    const pastelTitle = document.createElement("h2"); 
+    const pastelDescriptopn = document.createElement("p");
+    pastelTitle.innerText = item.name;
+    pastelDescriptopn.innerHTML = item.description;
+    pastelDiv2.appendChild(pastelTitle);
+    pastelDiv2.appendChild(pastelDescriptopn);
+
+    const pastelDiv3 = document.createElement("div"); 
+    pastelDiv3.classList.add("pastel-item-area3");
+    pastelDiv.appendChild(pastelDiv3);
+    const pastelPrice = document.createElement("h2"); 
+    const pastelButton = document.createElement("div");
+    pastelPrice.innerText = 'R$' + item.price.toFixed(2);
+    pastelButton.classList.add("pastel-plus");
+    pastelButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path d="M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z"/></svg>'
+
+    pastelDiv3.appendChild(pastelPrice);
+    pastelDiv3.appendChild(pastelButton);
+    pastelButton.addEventListener('click', (e) => {
+        keyEscolhido = index;
+        itemEscolhido = 2;
+        
+        e.preventDefault();
+        modalTamanho.style.display = 'none';
+        produtoModal.classList.add("show");
+
+        let numeroQuantidade = 1;
+        const modalTitle = document.querySelector(".produto-informacoes-area1 h2");
+        const modalDescription = document.querySelector(".produto-informacoes-area1 p");
+        const modalPrice = document.querySelector(".produto-preco h2");
+        const buttonCancel = document.querySelector('.cancela');
+        const buttonLess = document.querySelector('.quantidade-less');
+        const buttonPlus = document.querySelector('.quantidade-plus');
+        const buttonAdd = document.querySelector('#add');
+        const quantidade = document.querySelector('.produto-quantidade .quantidade');
+        const modalImg = document.querySelector('.produto-img img');
+        modalTitle.innerHTML = pastelJson[index].name;
+        modalDescription.innerHTML = pastelJson[index].description;
+        modalPrice.innerHTML = 'R$' + pastelJson[index].price.toFixed(2);
+        modalImg.src = pastelJson[index].img;
+
+        quantidade.innerHTML = numeroQuantidade;
+
+        buttonLess.addEventListener('click', ()=> {
+            numeroQuantidade = numeroQuantidade - 1;
+            if(numeroQuantidade <= 0){
+                numeroQuantidade = 1
+            }
+            quantidade.innerHTML = numeroQuantidade;
+        })
+
+        buttonPlus.addEventListener('click', () => {
+            numeroQuantidade = numeroQuantidade +1;
+            quantidade.innerHTML = numeroQuantidade;
+        })
 
 
+        buttonCancel.addEventListener('click', () => {
+            produtoModal.classList.remove("show");
+        })
+        
+  
+    })
 
+    pastelList.appendChild(pastelDiv); 
+
+
+})
 
 
 
@@ -347,9 +469,12 @@ function addCarrinho(keyEscolhido, itemEscolhido){
         compra.produto = pizzaJson[keyEscolhido];
         produtosCarrinho[keyCarrinho] = compra;
     }
+    else if(itemEscolhido == 2){
+        compra.produto = pastelJson[keyEscolhido];
+        produtosCarrinho[keyCarrinho] = compra;
+    }
     keyCarrinho = keyCarrinho + 1;
     
-    console.log(produtosCarrinho);
     produtoModal.classList.remove("show");
     contagemCarrinho();  
 }
@@ -410,5 +535,30 @@ function mostrarPedidos(){
         })
 
         carrinhoProdutos.appendChild(carrinhoItem); 
+    })
+}
+
+const menuItens = document.querySelectorAll('#header-menu a[href^="#"]'); //pega todos a
+
+menuItens.forEach(item => {
+    item.addEventListener('click', scrollToIdOnClick); //coloca um evento de click para cada a
+})
+
+const menuMobileItens = document.querySelectorAll('#header-menu-mobile a[href^="#"]'); //pega todos a
+
+menuMobileItens.forEach(item => {
+    item.addEventListener('click', scrollToIdOnClick); //coloca um evento de click para cada a
+})
+
+
+function scrollToIdOnClick(event) { //esse event e passado cada a cada vez que e clicado, addeventlistener
+    event.preventDefault();
+    const element = event.target; // o event vem com varios atributos, o target pega so a tag "a"
+    const id = element.getAttribute('href'); //pega so atributo href dentro do element
+    const to = document.querySelector(id).offsetTop; //esse offsettop pega o top da section
+
+    window.scroll({
+        top: to - 100,
+        behavior: "smooth",
     })
 }

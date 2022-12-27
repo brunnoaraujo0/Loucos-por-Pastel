@@ -199,18 +199,21 @@ font-size: 0.7rem;
     
 }
 /* HAMBURGUER ---------------------------------------------------------------------*/
+#pastel,
 #pizzas,
 #hamburguer {
     padding: 5%;
     width: 100%;
-    margin-top: 50px;
+    margin-top: 20px;
 }
+#pastel h1,
 #pizzas h1,
 #hamburguer h1{
     margin-left: 60px;
    color: #5c2308;
    font-size: 2.6rem;
 }
+.container-pastel,
 .container-pizza,
 .container-hamburguer {
     width: 100%;
@@ -219,6 +222,9 @@ font-size: 0.7rem;
     display: flex;
     justify-content: space-between;
 }
+
+.pastel-seta-right,
+.pastel-seta-left,
 .pizza-seta-right,
 .pizza-seta-left,
 .hamburguer-seta-right,
@@ -229,10 +235,13 @@ font-size: 0.7rem;
     display: flex;
     align-items: center;
 }
+.pastel-seta-right,
 .pizza-seta-right,
 .hamburguer-seta-right {
     justify-content: end;
 }
+.pastel-seta-right svg,
+.pastel-seta-left svg,
 .pizza-seta-right svg,
 .pizza-seta-left svg,
 .hamburguer-seta-right svg,
@@ -240,6 +249,8 @@ font-size: 0.7rem;
     width: 40px;
 }
 
+.pastel-seta-left > svg path,
+.pastel-seta-right > svg path,
 .pizza-seta-left > svg path,
 .pizza-seta-right > svg path,
 .hamburguer-seta-right > svg path,
@@ -249,12 +260,15 @@ font-size: 0.7rem;
     transition: all ease 0.3s;
     cursor: pointer;
 }
+.pastel-seta-right svg:hover path,
+.pastel-seta-left svg:hover path,
 .pizza-seta-right svg:hover path,
 .pizza-seta-left svg:hover path,
 .hamburguer-seta-right svg:hover path,
 .hamburguer-seta-left svg:hover path {
     fill: #ee7700;
 }
+.pastel-listarea,
 .pizza-listarea,
 .hamburguer-listarea {
     height: 100%;
@@ -262,6 +276,7 @@ font-size: 0.7rem;
 
     overflow: hidden;
 }
+.pastel-list,
 .pizza-list,
 .hamburguer-list {
     height: 100%;
@@ -271,9 +286,12 @@ font-size: 0.7rem;
     align-items: center;
     transition: all ease 0.3s;
 }
+.pastel-list,
 .pizza-list {
     width: 3740px;
 }
+
+.pastel-item, 
 .pizza-item, 
 .hamburguer-item {
     width: 300px;
@@ -283,6 +301,7 @@ font-size: 0.7rem;
     margin-right: 20px;
     border-radius: 40px;
 }
+.pastel-item-area1,
 .pizza-item-area1,
 .hamburguer-item-area1 {
     width: 100%;
@@ -294,31 +313,37 @@ font-size: 0.7rem;
     justify-content: center;
     overflow: hidden;
 }
+.pastel-item-area1 img,
 .hamburguer-item-area1 img {
     height: 80%;
 }
+
 .pizza-item-area1 img {
     height: 230.5px;
     margin-top: -100px;
 }
+.pastel-item-area2,
 .pizza-item-area2,
 .hamburguer-item-area2 {
     width: 100%;
     padding: 1rem;
  
 }
+.pastel-item-area2 h2,
 .pizza-item-area2 h2,
 .hamburguer-item-area2 h2 {
     color: #ee7700;
     font-size: 1.3rem;
     line-height: 20px;
 }
+.pastel-item-area2 p,
 .pizza-item-area2 p,
 .hamburguer-item-area2 p{
     color: antiquewhite;
     font-size: 0.7rem;
     margin-top: 5px;
 }
+.pastel-item-area3,
 .pizza-item-area3,
 .hamburguer-item-area3 {
     display: flex;
@@ -326,6 +351,7 @@ font-size: 0.7rem;
     justify-content: center;
     width: 100%;  
 }
+.pastel-item-area3 h2,
 .pizza-item-area3 h2,
 .hamburguer-item-area3 h2 {
     color: #ee7700;
@@ -333,10 +359,13 @@ font-size: 0.7rem;
     display: flex;
     align-items: center;
 }
+.pastel-item-area3 h2 span,
 .pizza-item-area3 h2 span,
 .hamburguer-item-area3 h2 span {
     font-size: 1rem;
 }
+
+.pastel-item-area3 .pastel-plus,
 .pizza-item-area3 .pizza-plus,
 .hamburguer-item-area3 .hamburguer-plus {
     border: 2px solid #f4ebdc;
@@ -346,15 +375,24 @@ font-size: 0.7rem;
     cursor: pointer;
     transition: all ease 0.3s;
 } 
+
+.pizza-item-area3 .pizza-plus {
+    margin-left: 0;
+}
+
+.pastel-item-area3 .pastel-plus:hover,
 .pizza-item-area3 .pizza-plus:hover,
 .hamburguer-item-area3 .hamburguer-plus:hover {
     background-color: #f4ebdc;
 }
+.pastel-plus svg,
 .pizza-plus svg,
 .hamburguer-plus svg {
     fill: #f4ebdc;
 }
-.pizza-plus:hover > svg path
+
+.pastel-plus:hover > svg path,
+.pizza-plus:hover > svg path,
 .hamburguer-plus:hover > svg path {
     
     fill: #5c2308;
@@ -420,7 +458,7 @@ font-size: 0.7rem;
 }
 .produto-informacoes-area1 {
     width: 100%;
-    padding: 1.5rem;
+    padding: 1rem 1.5rem;
     padding-top: 2.5rem;
 }
 .produto-informacoes-area1 h2 {
@@ -434,7 +472,7 @@ font-size: 0.7rem;
 }
 
 .produto-informacoes-area2 {
-    padding: 1.5rem;
+    padding: 1rem 1.5rem;
     padding-top: 0;
     justify-content: space-between;
     display: flex;
@@ -479,7 +517,7 @@ font-size: 0.7rem;
     font-weight: 500;
 }
 .produto-informacoes-area3 {
-    padding: 1.5rem;
+    padding: 1rem 1.5rem;
     display: flex;
     justify-content: space-between;
 }
@@ -533,6 +571,34 @@ font-size: 0.7rem;
       width: 0px;
     }
   }
+
+
+  .produto-pizza-tamanho {
+    margin-top: 1rem;
+    width: 100%;
+    display: none;
+    justify-content: center;
+  }
+  .produto-pizza-tamanho button {
+    border: none;
+    padding: 0.6rem 2rem;
+    background-color: #bf5900;
+    cursor: pointer;
+    transition: all ease 0.3s;
+  }
+  .produto-pizza-tamanho button:hover {
+    background-color: #e06b04;
+  }
+  .pizza-tamanho-pequena {
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+  }
+  .pizza-tamanho-grande {
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+  }
+
+
 
 /* MODAL CARRINHO ---------------------------------------------------------------------*/
 .modal-carrinho {
@@ -722,6 +788,7 @@ font-size: 0.7rem;
         background-size: cover;
         background-position: center;
     }
+    #pastel,
     #pizzas,
     #hamburguer {
        display: flex;
@@ -729,6 +796,7 @@ font-size: 0.7rem;
        justify-content: center;
        flex-direction: column;
       }
+      #pastel h1,
       #pizzas h1,
     #hamburguer h1 {
        margin-left: 0px;
@@ -736,12 +804,14 @@ font-size: 0.7rem;
 
 }
 @media(max-width: 460px) {
+    #pastel,
     #pizzas,
     #hamburguer {
         padding: 0%;
           width: 100%;
           
       }
+      .pastel-item,
       .pizza-item,
       .hamburguer-item {
         width: calc(100vw - 80px);
@@ -751,6 +821,7 @@ font-size: 0.7rem;
         margin-right: 20px;
         border-radius: 40px;
     }
+    .pastel-list
     .pizzas-list,
     .hamburguer-list {
         
