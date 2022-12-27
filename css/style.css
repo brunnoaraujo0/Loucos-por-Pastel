@@ -629,10 +629,34 @@ font-size: 0.7rem;
     width: 0px;
     height: 0px;               /* width of the entire scrollbar */
   }
+  .carrinho-seta {
+    padding: 1rem 0rem;
+    display: flex;
+    justify-content: space-around;
+  }
+  .carrinho-seta h3 {
+    color: #f4ebdc;
+    font-weight: 500;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+  .carrinho-seta h3 span {
+    color: #ee7700;
+  }
 .carrinho-seta button {
     background-color: #371200;
     border: none;
     cursor: pointer;
+}
+.carrinho-seta a> svg path {
+   
+    fill: #ee7700;
+    transition: all ease 0.3s;
+    
+}
+.carrinho-seta a:hover > svg path {
+   
+    fill: #f4ebdc; 
 }
 .carrinho-seta button > svg path {
    
