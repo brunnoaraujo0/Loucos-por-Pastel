@@ -48,17 +48,17 @@ let petiscoJson = [
 ];
 
 let bebidasJson = [
-    {id:0, name:'Coca Cola 350ml', img:'imagens/pizza.png', price:4.50, description:' ', type: ' '},
-    {id:1, name:'Guaraná 350ml', img:'imagens/pizza.png', price:4.00, description:' ', type: ' '},
-    {id:2, name:'Fanta Uva 350ml', img:'imagens/pizza.png', price:4.00, description:' ', type: ' '},
-    {id:3, name:'Coca Cola 1L', img:'imagens/pizza.png', price:7.00, description:' ', type: ' '},
-    {id:4, name:'Guaraná 1L', img:'imagens/pizza.png', price:6.00, description:' ', type: ' '},
-    {id:5, name:'Coca Cola 2L', img:'imagens/pizza.png', price:13.00, description:' ', type: ' '},
-    {id:6, name:'Guaraná 2L', img:'imagens/pizza.png', price:12.00, description:' ', type: ' '},
-    {id:7, name:'Suco de Laranja 300ml', img:'imagens/pizza.png', price:4.00, description:' ', type: ' '},
-    {id:8, name:'Suco de Acerola 300ml', img:'imagens/pizza.png', price:4.00, description:' ', type: ' '},
-    {id:9, name:'Sukita 1l', img:'imagens/pizza.png', price:6.00, description:' ', type: ' '},
-    {id:10, name:'Suco de laranja 1L', img:'imagens/pizza.png', price:10.00, description:' ', type: ' '}
+    {id:0, name:'Coca Cola 350ml', img:'imagens/cocaCola350.png', price:4.50, description:' ', type: 'Refrigerante'},
+    {id:1, name:'Guaraná 350ml', img:'imagens/guarana350.png', price:4.00, description:' ', type: 'Refrigerante'},
+    {id:2, name:'Fanta Uva 350ml', img:'imagens/fantaUva350.png', price:4.00, description:' ', type: 'Refrigerante'},
+    {id:3, name:'Coca Cola 1L', img:'imagens/cocaCola1l.png', price:7.00, description:' ', type: 'Refrigerante'},
+    {id:4, name:'Guaraná 1L', img:'imagens/guarana1l.png', price:6.00, description:' ', type: 'Refrigerante'},
+    {id:5, name:'Coca Cola 2L', img:'imagens/cocaCola2l.jpg', price:13.00, description:' ', type: 'Refrigerante'},
+    {id:6, name:'Guaraná 2L', img:'imagens/guaran2l.png', price:12.00, description:' ', type: 'Refrigerante'},
+    {id:7, name:'Suco de Laranja 300ml', img:'imagens/sucoLaranja.png', price:4.00, description:' ', type: 'Suco'},
+    {id:8, name:'Suco de Acerola 300ml', img:'imagens/sucoAcerola.png', price:4.00, description:' ', type: 'SUco'},
+    {id:9, name:'Sukita 1l', img:'imagens/sukita1l.png', price:6.00, description:' ', type: 'Refrigerante'},
+    {id:10, name:'Suco de laranja 1L', img:'imagens/sucoLaranja.png', price:10.00, description:' ', type: 'Suco'}
 ];
 
 
