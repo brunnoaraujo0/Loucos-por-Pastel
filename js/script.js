@@ -17,6 +17,7 @@ let itemEscolhido; //variavel que guarda o tipo de lanche escolhido, pizza, hamb
 let marginHamburguer = 0; //Margin para movimentar o carrosel de hamburguer
 let marginpizza = 0; //Margin para movimentar o carrosel de pizza
 let marginPastel = 0; //Margin para movimentar o carrosel de pizza
+let marginPetisco = 0; //Margin para movimentar o carrosel de pizza
 
 
 
@@ -142,6 +143,44 @@ document.querySelector('.pastel-setaRigth-icone').addEventListener('click', () =
 })
 
 
+
+// CARROSEL PETISCO ///////////////////////////////////////////////////////////////////////////////////////////
+
+document.querySelector('.petisco-setaLeft-icone').addEventListener('click', ()=> {
+   
+    if(window.innerWidth >460){
+    marginPetisco = marginPetisco + 340;
+    if(marginPetisco > 0){
+        marginPetisco = 0;
+    }
+    
+    document.querySelector('.petisco-list').style.marginLeft = marginPetisco  + 'px';}
+    else {
+        marginPetisco = marginPetisco + (window.innerWidth - 60);
+        if(marginPetisco > 0){
+            marginPetisco = 0;
+        }
+        document.querySelector('.petisco-list').style.marginLeft = marginPetisco + 'px'; ;
+    }
+})
+
+document.querySelector('.petisco-setaRigth-icone').addEventListener('click', () => {
+    if(window.innerWidth > 460){
+    let x = marginPetisco - 340;
+    if((window.innerWidth - 2280) > x){
+        x = 0;
+    }
+    marginPetisco = x;
+    document.querySelector('.petisco-list').style.marginLeft = marginPetisco + 'px';}
+    else{
+        marginPetisco = marginPetisco - (window.innerWidth - 60)  ;
+        let x = -(window.innerWidth * 5) - 10;
+        if(marginPetisco < x){
+            marginPetisco = 0;
+        }
+        document.querySelector('.petisco-list').style.marginLeft = marginPetisco + 'px';
+    }
+})
 
 
 // MAPEANDO LISTA DE HAMBURGUER ///////////////////////////////////////////////////////////////////////////////////////////
@@ -321,7 +360,7 @@ pizzaJson.map((item, index) => {
 })
 
 
-// MAPEANDO LISTA DE PIZZAS ///////////////////////////////////////////////////////////////////////////////////////////
+// MAPEANDO LISTA DE PASTEIS ///////////////////////////////////////////////////////////////////////////////////////////
 
 pastelJson.map((item, index) => {
     const pastelList = document.querySelector('.pastel-list');
@@ -410,6 +449,96 @@ pastelJson.map((item, index) => {
 
 
 
+// MAPEANDO LISTA DE PETISCOS ///////////////////////////////////////////////////////////////////////////////////////////
+
+petiscoJson.map((item, index) => {
+    const petiscoList = document.querySelector('.petisco-list');
+    const petiscoDiv = document.createElement("div"); 
+    petiscoDiv.classList.add("petisco-item"); 
+    petiscoList.appendChild(petiscoDiv); 
+    
+    const petiscoDiv1 = document.createElement("div"); 
+    petiscoDiv1.classList.add("petisco-item-area1");
+    petiscoDiv.appendChild(petiscoDiv1);
+    const petiscoImg = document.createElement("img");
+    petiscoImg.src = item.img;
+    petiscoDiv1.appendChild(petiscoImg);
+   
+    const petiscoDiv2 = document.createElement("div"); 
+    petiscoDiv2.classList.add("petisco-item-area2");
+    petiscoDiv.appendChild(petiscoDiv2);
+    const petiscoTitle = document.createElement("h2"); 
+    const petiscoDescriptopn = document.createElement("p");
+    petiscoTitle.innerText = item.name;
+    petiscoDescriptopn.innerHTML = item.description;
+    petiscoDiv2.appendChild(petiscoTitle);
+    petiscoDiv2.appendChild(petiscoDescriptopn);
+
+    const petiscoDiv3 = document.createElement("div"); 
+    petiscoDiv3.classList.add("petisco-item-area3");
+    petiscoDiv.appendChild(petiscoDiv3);
+    const petiscoPrice = document.createElement("h2"); 
+    const petiscoButton = document.createElement("div");
+    petiscoPrice.innerText = 'R$' + item.price.toFixed(2);
+    petiscoButton.classList.add("petisco-plus");
+    petiscoButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path d="M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z"/></svg>'
+
+    petiscoDiv3.appendChild(petiscoPrice);
+    petiscoDiv3.appendChild(petiscoButton);
+    petiscoButton.addEventListener('click', (e) => {
+        keyEscolhido = index;
+        itemEscolhido = 3;
+        
+        e.preventDefault();
+        modalTamanho.style.display = 'none';
+        produtoModal.classList.add("show");
+
+        let numeroQuantidade = 1;
+        const modalTitle = document.querySelector(".produto-informacoes-area1 h2");
+        const modalDescription = document.querySelector(".produto-informacoes-area1 p");
+        const modalPrice = document.querySelector(".produto-preco h2");
+        const buttonCancel = document.querySelector('.cancela');
+        const buttonLess = document.querySelector('.quantidade-less');
+        const buttonPlus = document.querySelector('.quantidade-plus');
+        const buttonAdd = document.querySelector('#add');
+        const quantidade = document.querySelector('.produto-quantidade .quantidade');
+        const modalImg = document.querySelector('.produto-img img');
+        modalTitle.innerHTML = petiscoJson[index].name;
+        modalDescription.innerHTML = petiscoJson[index].description;
+        modalPrice.innerHTML = 'R$' + petiscoJson[index].price.toFixed(2);
+        modalImg.src = petiscoJson[index].img;
+
+        quantidade.innerHTML = numeroQuantidade;
+
+        buttonLess.addEventListener('click', ()=> {
+            numeroQuantidade = numeroQuantidade - 1;
+            if(numeroQuantidade <= 0){
+                numeroQuantidade = 1
+            }
+            quantidade.innerHTML = numeroQuantidade;
+        })
+
+        buttonPlus.addEventListener('click', () => {
+            numeroQuantidade = numeroQuantidade +1;
+            quantidade.innerHTML = numeroQuantidade;
+        })
+
+
+        buttonCancel.addEventListener('click', () => {
+            produtoModal.classList.remove("show");
+        })
+        
+  
+    })
+
+    petiscoList.appendChild(petiscoDiv); 
+
+
+})
+
+
+
+
 //EVENTOS ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 iconeCarrinho.addEventListener('click', () => { //Botao do carrinho para mostrar os pedidos
@@ -473,6 +602,10 @@ function addCarrinho(keyEscolhido, itemEscolhido){
         compra.produto = pastelJson[keyEscolhido];
         produtosCarrinho[keyCarrinho] = compra;
     }
+    else if(itemEscolhido == 3){
+        compra.produto = petiscoJson[keyEscolhido];
+        produtosCarrinho[keyCarrinho] = compra;
+    }
     keyCarrinho = keyCarrinho + 1;
     
     produtoModal.classList.remove("show");
@@ -528,6 +661,7 @@ function mostrarPedidos(){
 
         carrinhoButton.addEventListener('click', () => {
             item.quantidade = item.quantidade -1;
+            mostrarPedidos();
             produtosCarrinho.splice(index, 1);
             mostrarPedidos();
             contagemCarrinho();
