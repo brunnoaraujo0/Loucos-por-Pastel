@@ -18,6 +18,9 @@ let marginHamburguer = 0; //Margin para movimentar o carrosel de hamburguer
 let marginpizza = 0; //Margin para movimentar o carrosel de pizza
 let marginPastel = 0; //Margin para movimentar o carrosel de pizza
 let marginPetisco = 0; //Margin para movimentar o carrosel de pizza
+let marginHotdog = 0; //Margin para movimentar o carrosel de pizza
+let marginBebidas = 0; //Margin para movimentar o carrosel de pizza
+let marginCombos = 0; //Margin para movimentar o carrosel de pizza
 
 
 
@@ -181,6 +184,128 @@ document.querySelector('.petisco-setaRigth-icone').addEventListener('click', () 
         document.querySelector('.petisco-list').style.marginLeft = marginPetisco + 'px';
     }
 })
+
+
+// CARROSEL HOTDOG ///////////////////////////////////////////////////////////////////////////////////////////
+
+document.querySelector('.hotdog-setaLeft-icone').addEventListener('click', ()=> {
+   
+    if(window.innerWidth >460){
+    marginHotdog = marginHotdog + 340;
+    if(marginHotdog > 0){
+        marginHotdog = 0;
+    }
+    
+    document.querySelector('.hotdog-list').style.marginLeft = marginHotdog  + 'px';}
+    else {
+        marginHotdog = marginHotdog + (window.innerWidth - 60);
+        if(marginHotdog > 0){
+            marginHotdog = 0;
+        }
+        document.querySelector('.hotdog-list').style.marginLeft = marginHotdog + 'px'; ;
+    }
+})
+
+document.querySelector('.hotdog-setaRigth-icone').addEventListener('click', () => {
+    if(window.innerWidth > 460){
+    let x = marginHotdog - 340;
+    if((window.innerWidth - 1070) > x){
+        x = 0;
+    }
+    marginHotdog = x;
+    document.querySelector('.hotdog-list').style.marginLeft = marginHotdog + 'px';}
+    else{
+        marginHotdog = marginHotdog - (window.innerWidth - 60)  ;
+        let x = -(window.innerWidth * 3) - 10;
+        if(marginHotdog < x){
+            marginHotdog = 0;
+        }
+        document.querySelector('.hotdog-list').style.marginLeft = marginHotdog + 'px';
+    }
+})
+
+
+
+// CARROSEL BEBIDAS ///////////////////////////////////////////////////////////////////////////////////////////
+
+
+document.querySelector('.bebidas-setaLeft-icone').addEventListener('click', ()=> {
+   
+    if(window.innerWidth >460){
+    marginBebidas = marginBebidas + 340;
+    if(marginBebidas > 0){
+        marginBebidas = 0;
+    }
+    
+    document.querySelector('.bebidas-list').style.marginLeft = marginBebidas  + 'px';}
+    else {
+        marginBebidas = marginBebidas + (window.innerWidth - 60);
+        if(marginBebidas > 0){
+            marginBebidas = 0;
+        }
+        document.querySelector('.bebidas-list').style.marginLeft = marginBebidas + 'px'; ;
+    }
+})
+
+document.querySelector('.bebidas-setaRigth-icone').addEventListener('click', () => {
+    if(window.innerWidth > 460){
+    let x = marginBebidas - 340;
+    if((window.innerWidth - 4420) > x){
+        x = 0;
+    }
+    marginBebidas = x;
+    document.querySelector('.bebidas-list').style.marginLeft = marginBebidas + 'px';}
+    else{
+        marginBebidas = marginBebidas - (window.innerWidth - 60)  ;
+        let x = -(window.innerWidth * 11) - 10;
+        if(marginBebidas < x){
+            marginBebidas = 0;
+        }
+        document.querySelector('.bebidas-list').style.marginLeft = marginBebidas + 'px';
+    }
+})
+
+// CARROSEL COMBOS ///////////////////////////////////////////////////////////////////////////////////////////
+
+
+document.querySelector('.combos-setaLeft-icone').addEventListener('click', ()=> {
+   
+    if(window.innerWidth >460){
+    marginCombos = marginCombos + 340;
+    if(marginCombos > 0){
+        marginCombos = 0;
+    }
+    
+    document.querySelector('.combos-list').style.marginLeft = marginCombos  + 'px';}
+    else {
+        marginCombos = marginCombos + (window.innerWidth - 60);
+        if(marginCombos > 0){
+            marginCombos = 0;
+        }
+        document.querySelector('.combos-list').style.marginLeft = marginCombos + 'px'; ;
+    }
+})
+
+document.querySelector('.combos-setaRigth-icone').addEventListener('click', () => {
+    if(window.innerWidth > 460){
+    let x = marginCombos - 340;
+    if((window.innerWidth - 4420) > x){
+        x = 0;
+    }
+    marginCombos = x;
+    document.querySelector('.combos-list').style.marginLeft = marginCombos + 'px';}
+    else{
+        marginCombos = marginCombos - (window.innerWidth - 60)  ;
+        let x = -(window.innerWidth * 11) - 10;
+        if(marginCombos < x){
+            marginCombos = 0;
+        }
+        document.querySelector('.combos-list').style.marginLeft = marginCombos + 'px';
+    }
+})
+
+
+
 
 
 // MAPEANDO LISTA DE HAMBURGUER ///////////////////////////////////////////////////////////////////////////////////////////
@@ -537,6 +662,275 @@ petiscoJson.map((item, index) => {
 })
 
 
+// MAPEANDO LISTA DE HOTDOG ///////////////////////////////////////////////////////////////////////////////////////////
+
+hotdogJson.map((item, index) => {
+    const hotdogList = document.querySelector('.hotdog-list');
+    const hotdogDiv = document.createElement("div"); 
+    hotdogDiv.classList.add("hotdog-item"); 
+    hotdogList.appendChild(hotdogDiv); 
+    
+    const hotdogDiv1 = document.createElement("div"); 
+    hotdogDiv1.classList.add("hotdog-item-area1");
+    hotdogDiv.appendChild(hotdogDiv1);
+    const hotdogImg = document.createElement("img");
+    hotdogImg.src = item.img;
+    hotdogDiv1.appendChild(hotdogImg);
+   
+    const hotdogDiv2 = document.createElement("div"); 
+    hotdogDiv2.classList.add("hotdog-item-area2");
+    hotdogDiv.appendChild(hotdogDiv2);
+    const hotdogTitle = document.createElement("h2"); 
+    const hotdogDescriptopn = document.createElement("p");
+    hotdogTitle.innerText = item.name;
+    hotdogDescriptopn.innerHTML = item.description;
+    hotdogDiv2.appendChild(hotdogTitle);
+    hotdogDiv2.appendChild(hotdogDescriptopn);
+
+    const hotdogDiv3 = document.createElement("div"); 
+    hotdogDiv3.classList.add("hotdog-item-area3");
+    hotdogDiv.appendChild(hotdogDiv3);
+    const hotdogPrice = document.createElement("h2"); 
+    const hotdogButton = document.createElement("div");
+    hotdogPrice.innerText = 'R$' + item.price.toFixed(2);
+    hotdogButton.classList.add("hotdog-plus");
+    hotdogButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path d="M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z"/></svg>'
+
+    hotdogDiv3.appendChild(hotdogPrice);
+    hotdogDiv3.appendChild(hotdogButton);
+    hotdogButton.addEventListener('click', (e) => {
+        keyEscolhido = index;
+        itemEscolhido = 4;
+        
+        e.preventDefault();
+        modalTamanho.style.display = 'none';
+        produtoModal.classList.add("show");
+
+        let numeroQuantidade = 1;
+        const modalTitle = document.querySelector(".produto-informacoes-area1 h2");
+        const modalDescription = document.querySelector(".produto-informacoes-area1 p");
+        const modalPrice = document.querySelector(".produto-preco h2");
+        const buttonCancel = document.querySelector('.cancela');
+        const buttonLess = document.querySelector('.quantidade-less');
+        const buttonPlus = document.querySelector('.quantidade-plus');
+        const buttonAdd = document.querySelector('#add');
+        const quantidade = document.querySelector('.produto-quantidade .quantidade');
+        const modalImg = document.querySelector('.produto-img img');
+        modalTitle.innerHTML = hotdogJson[index].name;
+        modalDescription.innerHTML = hotdogJson[index].description;
+        modalPrice.innerHTML = 'R$' + hotdogJson[index].price.toFixed(2);
+        modalImg.src = hotdogJson[index].img;
+
+        quantidade.innerHTML = numeroQuantidade;
+
+        buttonLess.addEventListener('click', ()=> {
+            numeroQuantidade = numeroQuantidade - 1;
+            if(numeroQuantidade <= 0){
+                numeroQuantidade = 1
+            }
+            quantidade.innerHTML = numeroQuantidade;
+        })
+
+        buttonPlus.addEventListener('click', () => {
+            numeroQuantidade = numeroQuantidade +1;
+            quantidade.innerHTML = numeroQuantidade;
+        })
+
+
+        buttonCancel.addEventListener('click', () => {
+            produtoModal.classList.remove("show");
+        })
+        
+  
+    })
+
+    hotdogList.appendChild(hotdogDiv); 
+
+
+})
+
+
+
+// MAPEANDO LISTA DE BEBIDAS ///////////////////////////////////////////////////////////////////////////////////////////
+
+bebidasJson.map((item, index) => {
+    const bebidasList = document.querySelector('.bebidas-list');
+    const bebidasDiv = document.createElement("div"); 
+    bebidasDiv.classList.add("bebidas-item");
+    bebidasList.appendChild(bebidasDiv);
+    
+    const bebidasDiv1 = document.createElement("div"); 
+    bebidasDiv1.classList.add("bebidas-item-area1");
+    bebidasDiv.appendChild(bebidasDiv1);
+    const bebidasImg = document.createElement("img");
+    bebidasImg.src = item.img;
+    bebidasDiv1.appendChild(bebidasImg);
+   
+    const bebidasDiv2 = document.createElement("div"); 
+    bebidasDiv2.classList.add("bebidas-item-area2");
+    bebidasDiv.appendChild(bebidasDiv2);
+    const bebidasTitle = document.createElement("h2"); 
+    const bebidasDescriptopn = document.createElement("p");
+    bebidasTitle.innerText = item.name;
+    bebidasDescriptopn.innerHTML = item.description;
+    bebidasDiv2.appendChild(bebidasTitle);
+    bebidasDiv2.appendChild(bebidasDescriptopn);
+
+    const bebidasDiv3 = document.createElement("div"); 
+    bebidasDiv3.classList.add("bebidas-item-area3");
+    bebidasDiv.appendChild(bebidasDiv3);
+    const bebidasPrice = document.createElement("h2"); 
+    const bebidasButton = document.createElement("div");
+    bebidasPrice.innerText = 'R$' + item.price.toFixed(2);
+    bebidasButton.classList.add("bebidas-plus");
+    bebidasButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path d="M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z"/></svg>'
+
+    bebidasDiv3.appendChild(bebidasPrice);
+    bebidasDiv3.appendChild(bebidasButton);
+    bebidasButton.addEventListener('click', (e) => {
+        keyEscolhido = index;
+        itemEscolhido = 5;
+         
+        modalTamanho.style.display = 'flex';
+        e.preventDefault();
+        
+        produtoModal.classList.add("show");
+
+        let numeroQuantidade = 1;
+        const modalTitle = document.querySelector(".produto-informacoes-area1 h2");
+        const modalDescription = document.querySelector(".produto-informacoes-area1 p");
+        const modalPrice = document.querySelector(".produto-preco h2");
+        const buttonCancel = document.querySelector('.cancela');
+        const buttonLess = document.querySelector('.quantidade-less');
+        const buttonPlus = document.querySelector('.quantidade-plus');
+        const modalImg = document.querySelector('.produto-img img');
+        const buttonAdd = document.querySelector('#add');
+        const quantidade = document.querySelector('.produto-quantidade .quantidade');
+        
+        modalTitle.innerHTML = bebidasJson[index].name;
+        modalDescription.innerHTML = bebidasJson[index].description;
+        modalPrice.innerHTML = 'R$' + bebidasJson[index].price.toFixed(2);
+        modalImg.src = bebidasJson[index].img;
+        quantidade.innerHTML = numeroQuantidade;
+
+        buttonLess.addEventListener('click', ()=> { //Botão de tirar 1 item do modal 1
+            numeroQuantidade = numeroQuantidade - 1;
+            if(numeroQuantidade <= 0){
+                numeroQuantidade = 1
+            }
+            quantidade.innerHTML = numeroQuantidade;
+        })
+
+        buttonPlus.addEventListener('click', () => { //Botão de adicionar 1 item do modal 1
+            numeroQuantidade = numeroQuantidade +1;
+            quantidade.innerHTML = numeroQuantidade;
+        })
+
+
+        buttonCancel.addEventListener('click', () => { //Botão cancelar do modal 1
+            produtoModal.classList.remove("show");
+        })
+        
+  
+    })
+
+    bebidasList.appendChild(bebidasDiv); 
+
+
+})
+
+
+
+
+
+// MAPEANDO LISTA DE COMBOS ///////////////////////////////////////////////////////////////////////////////////////////
+
+combosJson.map((item, index) => {
+    const combosList = document.querySelector('.combos-list');
+    const combosDiv = document.createElement("div"); 
+    combosDiv.classList.add("combos-item");
+    combosList.appendChild(combosDiv);
+    
+    const combosDiv1 = document.createElement("div"); 
+    combosDiv1.classList.add("combos-item-area1");
+    combosDiv.appendChild(combosDiv1);
+    const combosImg = document.createElement("img");
+    combosImg.src = item.img;
+    combosDiv1.appendChild(combosImg);
+   
+    const combosDiv2 = document.createElement("div"); 
+    combosDiv2.classList.add("combos-item-area2");
+    combosDiv.appendChild(combosDiv2);
+    const combosTitle = document.createElement("h2"); 
+    const combosDescriptopn = document.createElement("p");
+    combosTitle.innerText = item.name;
+    combosDescriptopn.innerHTML = item.description;
+    combosDiv2.appendChild(combosTitle);
+    combosDiv2.appendChild(combosDescriptopn);
+
+    const combosDiv3 = document.createElement("div"); 
+    combosDiv3.classList.add("combos-item-area3");
+    combosDiv.appendChild(combosDiv3);
+    const combosPrice = document.createElement("h2"); 
+    const combosButton = document.createElement("div");
+    combosPrice.innerText = 'R$' + item.price.toFixed(2);
+    combosButton.classList.add("combos-plus");
+    combosButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path d="M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z"/></svg>'
+
+    combosDiv3.appendChild(combosPrice);
+    combosDiv3.appendChild(combosButton);
+    combosButton.addEventListener('click', (e) => {
+        keyEscolhido = index;
+        itemEscolhido = 6;
+         
+        modalTamanho.style.display = 'flex';
+        e.preventDefault();
+        
+        produtoModal.classList.add("show");
+
+        let numeroQuantidade = 1;
+        const modalTitle = document.querySelector(".produto-informacoes-area1 h2");
+        const modalDescription = document.querySelector(".produto-informacoes-area1 p");
+        const modalPrice = document.querySelector(".produto-preco h2");
+        const buttonCancel = document.querySelector('.cancela');
+        const buttonLess = document.querySelector('.quantidade-less');
+        const buttonPlus = document.querySelector('.quantidade-plus');
+        const modalImg = document.querySelector('.produto-img img');
+        const buttonAdd = document.querySelector('#add');
+        const quantidade = document.querySelector('.produto-quantidade .quantidade');
+        
+        modalTitle.innerHTML = combosJson[index].name;
+        modalDescription.innerHTML = combosJson[index].description;
+        modalPrice.innerHTML = 'R$' + combosJson[index].price.toFixed(2);
+        modalImg.src = combosJson[index].img;
+        quantidade.innerHTML = numeroQuantidade;
+
+        buttonLess.addEventListener('click', ()=> { //Botão de tirar 1 item do modal 1
+            numeroQuantidade = numeroQuantidade - 1;
+            if(numeroQuantidade <= 0){
+                numeroQuantidade = 1
+            }
+            quantidade.innerHTML = numeroQuantidade;
+        })
+
+        buttonPlus.addEventListener('click', () => { //Botão de adicionar 1 item do modal 1
+            numeroQuantidade = numeroQuantidade +1;
+            quantidade.innerHTML = numeroQuantidade;
+        })
+
+
+        buttonCancel.addEventListener('click', () => { //Botão cancelar do modal 1
+            produtoModal.classList.remove("show");
+        })
+        
+  
+    })
+
+    combosList.appendChild(combosDiv); 
+
+
+})
+
 
 
 //EVENTOS ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -604,6 +998,18 @@ function addCarrinho(keyEscolhido, itemEscolhido){
     }
     else if(itemEscolhido == 3){
         compra.produto = petiscoJson[keyEscolhido];
+        produtosCarrinho[keyCarrinho] = compra;
+    }
+    else if(itemEscolhido == 4){
+        compra.produto = hotdogJson[keyEscolhido];
+        produtosCarrinho[keyCarrinho] = compra;
+    }
+    else if(itemEscolhido == 5){
+        compra.produto = bebidasJson[keyEscolhido];
+        produtosCarrinho[keyCarrinho] = compra;
+    }
+    else if(itemEscolhido == 6){
+        compra.produto = combosJson[keyEscolhido];
         produtosCarrinho[keyCarrinho] = compra;
     }
     keyCarrinho = keyCarrinho + 1;

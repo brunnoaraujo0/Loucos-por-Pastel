@@ -198,7 +198,10 @@ font-size: 0.7rem;
     
     
 }
-/* HAMBURGUER ---------------------------------------------------------------------*/
+/* LISTAGEM DOS LANCHES ---------------------------------------------------------------------*/
+#combos,
+#bebidas,
+#hotdog,
 #petisco,
 #pastel,
 #pizzas,
@@ -207,6 +210,9 @@ font-size: 0.7rem;
     width: 100%;
     margin-top: 20px;
 }
+#combos h1,
+#bebidas h1,
+#hotdog h1,
 #petisco h1,
 #pastel h1,
 #pizzas h1,
@@ -215,6 +221,9 @@ font-size: 0.7rem;
    color: #5c2308;
    font-size: 2.6rem;
 }
+.container-combos,
+.container-bebidas,
+.container-hotdog,
 .container-petisco,
 .container-pastel,
 .container-pizza,
@@ -225,6 +234,12 @@ font-size: 0.7rem;
     display: flex;
     justify-content: space-between;
 }
+.combos-seta-right,
+.combos-seta-left,
+.bebidas-seta-right,
+.bebidas-seta-left,
+.hotdog-seta-right,
+.hotdog-seta-left,
 .petisco-seta-right,
 .petisco-seta-left,
 .pastel-seta-right,
@@ -239,12 +254,21 @@ font-size: 0.7rem;
     display: flex;
     align-items: center;
 }
+.combos-seta-right,
+.bebidas-seta-right,
+.hotdog-seta-right,
 .petisco-seta-right,
 .pastel-seta-right,
 .pizza-seta-right,
 .hamburguer-seta-right {
     justify-content: end;
 }
+.combos-seta-right svg,
+.combos-seta-left svg,
+.bebidas-seta-right svg,
+.bebidas-seta-left svg,
+.hotdog-seta-right svg,
+.hotdog-seta-left svg,
 .petisco-seta-right svg,
 .petisco-seta-left svg,
 .pastel-seta-right svg,
@@ -255,6 +279,12 @@ font-size: 0.7rem;
 .hamburguer-seta-left svg {
     width: 40px;
 }
+.combos-seta-left > svg path,
+.combos-seta-right > svg path,
+.bebidas-seta-left > svg path,
+.bebidas-seta-right > svg path,
+.hotdog-seta-left > svg path,
+.hotdog-seta-right > svg path,
 .petisco-seta-left > svg path,
 .petisco-seta-right > svg path,
 .pastel-seta-left > svg path,
@@ -268,6 +298,12 @@ font-size: 0.7rem;
     transition: all ease 0.3s;
     cursor: pointer;
 }
+.combos-seta-right svg:hover path,
+.combos-seta-left svg:hover path,
+.bebidas-seta-right svg:hover path,
+.bebidas-seta-left svg:hover path,
+.hotdog-seta-right svg:hover path,
+.hotdog-seta-left svg:hover path,
 .petisco-seta-right svg:hover path,
 .petisco-seta-left svg:hover path,
 .pastel-seta-right svg:hover path,
@@ -278,6 +314,9 @@ font-size: 0.7rem;
 .hamburguer-seta-left svg:hover path {
     fill: #ee7700;
 }
+.combos-listarea,
+.bebidas-listarea,
+.hotdog-listarea,
 .petisco-listarea,
 .pastel-listarea,
 .pizza-listarea,
@@ -287,6 +326,9 @@ font-size: 0.7rem;
 
     overflow: hidden;
 }
+.combos-list,
+.bebidas-list,
+.hotdog-list,
 .petisco-list,
 .pastel-list,
 .pizza-list,
@@ -302,10 +344,18 @@ font-size: 0.7rem;
 .petisco-list{
     width: 1700px;
 }
+.hotdog-list {
+    width: 1020px;
+}
+.combos-list,
+.bebidas-list,
 .pastel-list,
 .pizza-list {
     width: 3740px;
 }
+.combos-item,
+.bebidas-item,
+.hotdog-item, 
 .petisco-item, 
 .pastel-item, 
 .pizza-item, 
@@ -317,6 +367,9 @@ font-size: 0.7rem;
     margin-right: 20px;
     border-radius: 40px;
 }
+.combos-item-area1,
+.bebidas-item-area1,
+.hotdog-item-area1,
 .petisco-item-area1,
 .pastel-item-area1,
 .pizza-item-area1,
@@ -330,6 +383,9 @@ font-size: 0.7rem;
     justify-content: center;
     overflow: hidden;
 }
+.combos-item-area1 img,
+.bebidas-item-area1 img,
+.hotdog-item-area1 img,
 .petisco-item-area1 img,
 .pastel-item-area1 img,
 .hamburguer-item-area1 img {
@@ -340,6 +396,9 @@ font-size: 0.7rem;
     height: 230.5px;
     margin-top: -100px;
 }
+.combos-item-area2,
+.bebidas-item-area2,
+.hotdog-item-area2,
 .petisco-item-area2,
 .pastel-item-area2,
 .pizza-item-area2,
@@ -348,6 +407,9 @@ font-size: 0.7rem;
     padding: 1rem;
  
 }
+.combos-item-area2 h2,
+.bebidas-item-area2 h2,
+.hotdog-item-area2 h2,
 .petisco-item-area2 h2,
 .pastel-item-area2 h2,
 .pizza-item-area2 h2,
@@ -356,6 +418,9 @@ font-size: 0.7rem;
     font-size: 1.3rem;
     line-height: 20px;
 }
+.combos-item-area2 p,
+.bebidas-item-area2 p,
+.hotdog-item-area2 p,
 .petisco-item-area2 p,
 .pastel-item-area2 p,
 .pizza-item-area2 p,
@@ -364,6 +429,9 @@ font-size: 0.7rem;
     font-size: 0.7rem;
     margin-top: 5px;
 }
+.combos-item-area3,
+.bebidas-item-area3,
+.hotdog-item-area3,
 .petisco-item-area3,
 .pastel-item-area3,
 .pizza-item-area3,
@@ -373,6 +441,9 @@ font-size: 0.7rem;
     justify-content: center;
     width: 100%;  
 }
+.combos-item-area3 h2,
+.bebidas-item-area3 h2,
+.hotdog-item-area3 h2,
 .petisco-item-area3 h2,
 .pastel-item-area3 h2,
 .pizza-item-area3 h2,
@@ -382,12 +453,18 @@ font-size: 0.7rem;
     display: flex;
     align-items: center;
 }
+.combos-item-area3 h2 span,
+.bebidas-item-area3 h2 span,
+.hotdog-item-area3 h2 span,
 .petisco-item-area3 h2 span,
 .pastel-item-area3 h2 span,
 .pizza-item-area3 h2 span,
 .hamburguer-item-area3 h2 span {
     font-size: 1rem;
 }
+.combos-item-area3 .combos-plus,
+.bebidas-item-area3 .bebidas-plus,
+.hotdog-item-area3 .hotdog-plus,
 .petisco-item-area3 .petisco-plus,
 .pastel-item-area3 .pastel-plus,
 .pizza-item-area3 .pizza-plus,
@@ -403,19 +480,27 @@ font-size: 0.7rem;
 .pizza-item-area3 .pizza-plus {
     margin-left: 0;
 }
+.combos-item-area3 .combos-plus:hover,
+.bebidas-item-area3 .bebidas-plus:hover,
+.hotdog-item-area3 .hotdog-plus:hover,
 .petisco-item-area3 .petisco-plus:hover,
 .pastel-item-area3 .pastel-plus:hover,
 .pizza-item-area3 .pizza-plus:hover,
 .hamburguer-item-area3 .hamburguer-plus:hover {
     background-color: #f4ebdc;
 }
+.combos-plus svg,
+.bebidas-plus svg,
+.hotdog-plus svg,
 .petisco-plus svg,
 .pastel-plus svg,
 .pizza-plus svg,
 .hamburguer-plus svg {
     fill: #f4ebdc;
 }
-
+.combos-plus:hover > svg path,
+.bebidas-plus:hover > svg path,
+.hotdog-plus:hover > svg path,
 .petisco-plus:hover > svg path,
 .pastel-plus:hover > svg path,
 .pizza-plus:hover > svg path,
@@ -838,6 +923,9 @@ font-size: 0.7rem;
         background-size: cover;
         background-position: center;
     }
+    #combos,
+    #bebidas,
+    #hotdog,
     #petisco,
     #pastel,
     #pizzas,
@@ -847,6 +935,9 @@ font-size: 0.7rem;
        justify-content: center;
        flex-direction: column;
       }
+      #combos h1,
+      #bebidas h1,
+      #hotdog h1,
       #petisco h1,
       #pastel h1,
       #pizzas h1,
@@ -856,6 +947,9 @@ font-size: 0.7rem;
 
 }
 @media(max-width: 460px) {
+    #combos,
+    #bebidas,
+    #hotdog,
     #petisco,
     #pastel,
     #pizzas,
@@ -864,6 +958,9 @@ font-size: 0.7rem;
           width: 100%;
           
       }
+      .combos-item,
+      .bebidas-item,
+      .hotdog-item,
       .petisco-item,
       .pastel-item,
       .pizza-item,
@@ -875,6 +972,9 @@ font-size: 0.7rem;
         margin-right: 20px;
         border-radius: 40px;
     }
+    .combos-list,
+    .bebidas-list,
+    .hotdog-list,
     .petisco-list,
     .pastel-list
     .pizzas-list,
