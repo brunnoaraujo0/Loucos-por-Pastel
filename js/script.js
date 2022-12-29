@@ -54,7 +54,7 @@ document.querySelector('.hamburguer-setaRigth-icone').addEventListener('click', 
     document.querySelector('.hamburguer-list').style.marginLeft = marginHamburguer + 'px';}
     else{
         marginHamburguer = marginHamburguer - (window.innerWidth - 60)  ;
-        let x = -(window.innerWidth * 10) - 10;
+        let x = -(window.innerWidth * 8) - 10;
         if(marginHamburguer < x){
             marginHamburguer = 0;
         }
@@ -97,7 +97,7 @@ document.querySelector('.pizza-setaRigth-icone').addEventListener('click', () =>
     document.querySelector('.pizza-list').style.marginLeft = marginpizza + 'px';}
     else{
         marginpizza = marginpizza - (window.innerWidth - 60)  ;
-        let x = -(window.innerWidth * 11) - 10;
+        let x = -(window.innerWidth * 9) - 10;
         if(marginpizza < x){
             marginpizza = 0;
         }
@@ -137,7 +137,7 @@ document.querySelector('.pastel-setaRigth-icone').addEventListener('click', () =
     document.querySelector('.pastel-list').style.marginLeft = marginPastel + 'px';}
     else{
         marginPastel = marginPastel - (window.innerWidth - 60)  ;
-        let x = -(window.innerWidth * 10) - 10;
+        let x = -(window.innerWidth * 8) - 10;
         if(marginPastel < x){
             marginPastel = 0;
         }
@@ -177,7 +177,7 @@ document.querySelector('.petisco-setaRigth-icone').addEventListener('click', () 
     document.querySelector('.petisco-list').style.marginLeft = marginPetisco + 'px';}
     else{
         marginPetisco = marginPetisco - (window.innerWidth - 60)  ;
-        let x = -(window.innerWidth * 5) - 10;
+        let x = -(window.innerWidth * 4) - 10;
         if(marginPetisco < x){
             marginPetisco = 0;
         }
@@ -216,7 +216,7 @@ document.querySelector('.hotdog-setaRigth-icone').addEventListener('click', () =
     document.querySelector('.hotdog-list').style.marginLeft = marginHotdog + 'px';}
     else{
         marginHotdog = marginHotdog - (window.innerWidth - 60)  ;
-        let x = -(window.innerWidth * 3) - 10;
+        let x = -(window.innerWidth * 2) - 10;
         if(marginHotdog < x){
             marginHotdog = 0;
         }
@@ -257,7 +257,7 @@ document.querySelector('.bebidas-setaRigth-icone').addEventListener('click', () 
     document.querySelector('.bebidas-list').style.marginLeft = marginBebidas + 'px';}
     else{
         marginBebidas = marginBebidas - (window.innerWidth - 60)  ;
-        let x = -(window.innerWidth * 11) - 10;
+        let x = -(window.innerWidth * 9) - 10;
         if(marginBebidas < x){
             marginBebidas = 0;
         }
@@ -296,7 +296,7 @@ document.querySelector('.combos-setaRigth-icone').addEventListener('click', () =
     document.querySelector('.combos-list').style.marginLeft = marginCombos + 'px';}
     else{
         marginCombos = marginCombos - (window.innerWidth - 60)  ;
-        let x = -(window.innerWidth * 11) - 10;
+        let x = -(window.innerWidth * 9) - 10;
         if(marginCombos < x){
             marginCombos = 0;
         }
@@ -1081,13 +1081,13 @@ function mostrarPedidos(){
 const menuItens = document.querySelectorAll('#header-menu a[href^="#"]'); //pega todos a
 
 menuItens.forEach(item => {
-    item.addEventListener('click', scrollToIdOnClick); //coloca um evento de click para cada a
+    item.addEventListener('click', scrollToIdOnClick); 
 })
 
 const menuMobileItens = document.querySelectorAll('#header-menu-mobile a[href^="#"]'); //pega todos a
 
 menuMobileItens.forEach(item => {
-    item.addEventListener('click', scrollToIdOnClick); //coloca um evento de click para cada a
+    item.addEventListener('click', scrollToIdOnClick); 
 })
 
 
@@ -1102,3 +1102,4 @@ function scrollToIdOnClick(event) { //esse event e passado cada a cada vez que e
         behavior: "smooth",
     })
 }
+

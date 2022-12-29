@@ -254,6 +254,12 @@ font-size: 0.7rem;
     display: flex;
     align-items: center;
 }
+.hotdog-seta-right,
+.hotdog-seta-left {
+    opacity: 0;
+}
+
+
 .combos-seta-right,
 .bebidas-seta-right,
 .hotdog-seta-right,
@@ -298,6 +304,11 @@ font-size: 0.7rem;
     transition: all ease 0.3s;
     cursor: pointer;
 }
+.hotdog-seta-left > svg path,
+.hotdog-seta-right > svg path {
+    cursor: none;
+}
+
 .combos-seta-right svg:hover path,
 .combos-seta-left svg:hover path,
 .bebidas-seta-right svg:hover path,
@@ -887,7 +898,11 @@ font-size: 0.7rem;
 }
 
 
-
+footer {
+    width: 100%;
+    padding: 7rem;
+    background-color: #371200;
+}
 
 /* RESPONSIVIDADE ---------------------------------------------------------------------*/
 @media (max-width: 1400px){
@@ -944,6 +959,15 @@ font-size: 0.7rem;
     #hamburguer h1 {
        margin-left: 0px;
       }
+
+      .hotdog-seta-right,
+        .hotdog-seta-left {
+    opacity: 1;
+}
+.hotdog-seta-left > svg path,
+.hotdog-seta-right > svg path {
+    cursor: pointer;
+}
 
 }
 @media(max-width: 460px) {
