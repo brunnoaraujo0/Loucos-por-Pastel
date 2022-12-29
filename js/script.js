@@ -883,7 +883,7 @@ combosJson.map((item, index) => {
         keyEscolhido = index;
         itemEscolhido = 6;
          
-        modalTamanho.style.display = 'flex';
+        modalTamanho.style.display = 'none';
         e.preventDefault();
         
         produtoModal.classList.add("show");

@@ -40,11 +40,11 @@ let pastelJson = [
 ];
 
 let petiscoJson = [
-    {id:0, name:'Batata Fritas de 6', img:'imagens/pastel.png', price:6.00, description:'Opcionais: Cheddar, Catupiry ou Queijo Ralado', type: 'Petisco'},
-    {id:1, name:'Batata Fritas de 8', img:'imagens/pastel.png', price:8.00, description:'Opcionais: Cheddar, Catupiry ou Queijo Ralado', type: 'Petisco'},
-    {id:2, name:'Iscas de frango c/ Fritas', img:'imagens/pastel.png', price:22.00, description:' ', type: 'Petisco'},
-    {id:3, name:'Filé c/ Fritas', img:'imagens/pastel.png', price:25.00, description:' ', type: 'Petisco'},
-    {id:4, name:'Camarão c/ Fritas e salada', img:'imagens/pastel.png', price:25.00, description:' ', type: 'Petisco'},
+    {id:0, name:'Batata Fritas de 6', img:'imagens/batataFritas.png', price:6.00, description:'Opcionais: Cheddar, Catupiry ou Queijo Ralado', type: 'Petisco'},
+    {id:1, name:'Batata Fritas de 8', img:'imagens/batataFritas.png', price:8.00, description:'Opcionais: Cheddar, Catupiry ou Queijo Ralado', type: 'Petisco'},
+    {id:2, name:'Iscas de frango c/ Fritas', img:'imagens/frangoFritas.png', price:22.00, description:' ', type: 'Petisco'},
+    {id:3, name:'Filé c/ Fritas', img:'imagens/fileFritas.png', price:25.00, description:' ', type: 'Petisco'},
+    {id:4, name:'Camarão c/ Fritas e salada', img:'imagens/camaraoFritas.png', price:25.00, description:' ', type: 'Petisco'},
 ];
 
 let bebidasJson = [
@@ -63,22 +63,22 @@ let bebidasJson = [
 
 
 let hotdogJson = [
-    {id:0, name:'Hot dog', img:'imagens/pizza.png', price:4.00, description:'Carne ou frango, salsicha, queijo ralado, milho, ervilha, batata palha, ovo de codorna, cheddar ou requeijão', type: ' '},
-    {id:1, name:'Big Hot Dog', img:'imagens/pizza.png', price:9.00, description:'Salsicha, 3x mais carne, 3x mais frango, 2 ovos de codorna, bacon, calabresa, requeijão, cheddar, batata, milho, ervilha e queijo ralado', type: ' '},
-    {id:2, name:'Hot Nordestino', img:'imagens/pizza.png', price:8.00, description:'Salsicha, carne de sol, vinagrete, batata palha, queijo coalho maçaricano', type: ' '},
+    {id:0, name:'Hot dog', img:'imagens/cachorroQuente.png', price:4.00, description:'Carne ou frango, salsicha, queijo ralado, milho, ervilha, batata palha, ovo de codorna, cheddar ou requeijão', type: 'Cachorro quente'},
+    {id:1, name:'Big Hot Dog', img:'imagens/cachorroQuente.png', price:9.00, description:'Salsicha, 3x mais carne, 3x mais frango, 2 ovos de codorna, bacon, calabresa, requeijão, cheddar, batata, milho, ervilha e queijo ralado', type: 'Cachorro quente'},
+    {id:2, name:'Hot Nordestino', img:'imagens/cachorroQuente.png', price:8.00, description:'Salsicha, carne de sol, vinagrete, batata palha, queijo coalho maçaricano', type: 'Cachorro quente'},
 ];
 
 
 let combosJson = [
-    {id:0, name:'Combo Familia', img:'imagens/pizza.png', price:30.00, description:' ', type: ' '},
-    {id:1, name:'Mega Combo', img:'imagens/pizza.png', price:35.00, description:' ', type: ' '},
-    {id:2, name:'Mistão', img:'imagens/pizza.png', price:40.00, description:' ', type: ' '},
-    {id:3, name:'Combo Casal', img:'imagens/pizza.png', price:30.00, description:' ', type: ' '},
-    {id:4, name:'Combo Batata', img:'imagens/pizza.png', price:10.00, description:' ', type: ' '},
-    {id:5, name:'Combo Batata 2', img:'imagens/pizza.png', price:10.00, description:' ', type: ' '},
-    {id:6, name:'Combo Pastel 1', img:'imagens/pizza.png', price:8.00, description:' ', type: ' '},
-    {id:7, name:'Combo Pastel 2', img:'imagens/pizza.png', price:16.00, description:' ', type: ' '},
-    {id:8, name:'Combo Pastel 3', img:'imagens/pizza.png', price:24.00, description:' ', type: ' '},
-    {id:9, name:'Combo Pastel 4', img:'imagens/pizza.png', price:32.00, description:' ', type: ' '},
-    {id:10, name:'Combo Pastel 5', img:'imagens/pizza.png', price:46.00, description:' ', type: ' '}
+    {id:0, name:'Combo Familia', img:'imagens/pizza.png', price:30.00, description:'15 Mini Pasteis + 2 Hot dog + Batata fritas + Guaraná 1L', type: 'Combo'},
+    {id:1, name:'Mega Combo', img:'imagens/pizza.png', price:35.00, description:'Batata fritas + Calabresa + Frango Empanado', type: 'Combo'},
+    {id:2, name:'Mistão', img:'imagens/pizza.png', price:40.00, description:'Batata Fritas + Calabresa + Frango empanado + Carne de sol', type: 'Combo'},
+    {id:3, name:'Combo Casal', img:'imagens/pizza.png', price:30.00, description:'2 Bauru simples + Batata c/ cheddar + 10 mini pasteis', type: 'Combo'},
+    {id:4, name:'Combo Batata', img:'imagens/pizza.png', price:10.00, description:'Batata + bacon + cheddar', type: 'Combo'},
+    {id:5, name:'Combo Batata 2', img:'imagens/pizza.png', price:10.00, description:'Batata + Calabresa + cheddar', type: 'Combo'},
+    {id:6, name:'Combo Pastel 1', img:'imagens/pizza.png', price:8.00, description:'10 mini Pastéis + 1 refrigerante ', type: 'Combo'},
+    {id:7, name:'Combo Pastel 2', img:'imagens/pizza.png', price:16.00, description:'20 mini Pastéis + 1 Coca lata', type: 'Combo'},
+    {id:8, name:'Combo Pastel 3', img:'imagens/pizza.png', price:24.00, description:'30 mini Pastéis + 1 refrigerante 1L', type: 'Combo'},
+    {id:9, name:'Combo Pastel 4', img:'imagens/pizza.png', price:32.00, description:'40 mini Pastéis 2 coca lata 350ml', type: 'Combo'},
+    {id:10, name:'Combo Pastel 5', img:'imagens/pizza.png', price:46.00, description:'60 mini Pastéis + guaraná 1L + Coca Lata', type: 'Combo'}
 ];
